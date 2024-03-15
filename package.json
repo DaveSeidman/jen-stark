@@ -1,0 +1,55 @@
+{
+  "name": "jen-stark",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.2",
+    "sass": "^1.71.1",
+    "vite": "^5.1.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-react": "^7.34.0",
+    "stylint": "^2.0.0"
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "rules": {
+      "no-console": 0,
+      "no-restricted-globals": 0,
+      "react/no-danger": 0,
+      "prefer-destructuring": 0,
+      "no-param-reassign": 0,
+      "object-curly-newline": 0,
+      "max-len": 0,
+      "new-cap": 0,
+      "no-underscore-dangle": 0,
+      "jsx-a11y/click-events-have-key-events": 0,
+      "jsx-a11y/no-static-element-interactions": 0,
+      "jsx-a11y/media-has-caption": 0,
+      "jsx-a11y/alt-text": 0
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-idiomatic-order",
+    "rules": {
+      "indentation": 2,
+      "max-empty-lines": 1,
+      "selector-list-comma-newline-after": "never-multi-line"
+    }
+  }
+}
