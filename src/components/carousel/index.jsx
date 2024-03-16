@@ -2,17 +2,52 @@ import React, { useEffect, useState, useRef } from 'react';
 import './index.scss';
 
 function Carousel({ pages }) {
-  useEffect(() => {
+  const pagesRef = useRef();
+  const [pagesArray, setPagesArray] = useState(pages);
 
+  useEffect(() => {
+    console.log(pagesRef.current);
+    // if(!pagesArray)
+    const array = Array.from(pagesRef.current.children);
+    const nextPagesArray = [...pagesArray];
+    nextPagesArray.forEach((page, index) => {
+      page.el = array[index];
+    });
+    setPagesArray(nextPagesArray);
+    // pagesArray.current = array.map((page, index) => ({ el: page, id: index, offset: 0 }));
+    // console.log(pagesArray);
   }, []);
+
+  const scroll = () => {
+    const nextPagesArray = [...pagesArray];
+    let update = false;
+    pagesArray.forEach((page) => {
+      const { top } = page.el.getBoundingClientRect();
+      const { length } = pagesArray;
+
+      if (top < -innerHeight) {
+        page.offset += 1;
+        update = true;
+      }
+    });
+    if (update) setPagesArray(nextPagesArray);
+  };
 
   return (
     <div className="carousel">
-      <div className="carousel-pages">
-        {pages.map((page, index) => (
+      <div
+        ref={pagesRef}
+        className="carousel-pages"
+        onScroll={scroll}
+      >
+        {pagesArray.map((page, index) => (
           <div
+            key={index}
             className="carousel-pages-page"
-            style={{ top: `${index * 100}%` }}
+            style={{
+              top: `${index * innerHeight}px`,
+              transform: `translateY(${(page.offset * pagesArray.length) * innerHeight}px)`,
+            }}
           >
             <h1>{page.title}</h1>
           </div>

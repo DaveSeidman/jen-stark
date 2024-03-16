@@ -11,13 +11,13 @@ function App() {
   return (
     <div className="app">
       <Scene overview={overview} />
+      <Carousel pages={pages} />
       <img
         type="button"
         className="map"
         onClick={() => { setOverview((prevOverview) => !prevOverview); }}
         src={mapFile}
       />
-      <Carousel pages={pages} />
     </div>
   );
 }

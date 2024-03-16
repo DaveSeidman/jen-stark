@@ -6,14 +6,14 @@ import sceneFile from '../../assets/models/scene1.glb';
 
 function Model() {
   const { scene, animations } = useGLTF(sceneFile);
-  const wireMat = new MeshBasicMaterial({ wireframe: true });
-  console.log(scene.getObjectByName('Art1'));
+  // const wireMat = new MeshBasicMaterial({ wireframe: true });
+  // console.log(scene.getObjectByName('Art1'));
 
-  scene.traverse((obj) => {
-    if (obj.isMesh) {
-      // obj.material = wireMat;
-    }
-  });
+  // scene.traverse((obj) => {
+  //   if (obj.isMesh) {
+  //     // obj.material = wireMat;
+  //   }
+  // });
 
   const mixerRef = useRef();
 

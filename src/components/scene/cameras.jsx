@@ -7,7 +7,6 @@ import envFile from '../../assets/images/metro_noord_4k.hdr';
 import { points } from '../../assets/models/path1.json';
 
 const curve = new CatmullRomCurve3(points.map((p) => new Vector3(p.x, p.y, p.z)));
-console.log(curve.getLength());
 // curve.closed = true;
 const lookAt = new Vector3();
 const lookAhead = 0.05;
@@ -36,7 +35,7 @@ export function TourCamera({ makeDefault }) {
   };
 
   const touchmove = (e) => {
-    console.log(e);
+    // console.log(e);
   };
 
   useEffect(() => {
