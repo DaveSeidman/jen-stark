@@ -4,11 +4,14 @@ import { Vector3, CameraHelper, CatmullRomCurve3 } from 'three';
 import { useHelper, PerspectiveCamera, Stars, useGLTF, Environment } from '@react-three/drei';
 import sceneFile from './assets/models/scene1.glb';
 import envFile from './assets/images/metro_noord_4k.hdr';
+import mapFile from './assets/images/map2.png';
 import './index.scss';
 import { points } from './assets/models/path1.json';
 
-function Model({ curve }) {
+function Model() {
   const { scene, animations } = useGLTF(sceneFile);
+
+  console.log(scene.getObjectByName('Art1'));
 
   const mixerRef = useRef();
 
@@ -20,37 +23,44 @@ function Model({ curve }) {
   );
 }
 
-function Camera() {
+const curve = new CatmullRomCurve3(points.map((p) => new Vector3(p.x, p.y, p.z)));
+curve.closed = true;
+const lookAt = new Vector3();
+const lookAhead = 0.05;
+const tourSpeed = -0.0005;
+
+function TourCamera({ makeDefault }) {
   const [cameraPosition, setCameraPosition] = useState([0, 0, 0]);
   const [progress, setProgress] = useState(0);
   const progressTarget = useRef(0);
-  // const progress = useRef(0);
-  const curve = new CatmullRomCurve3(points.map((p) => new Vector3(p.x, p.y, p.z)));
+
   const cameraRef = useRef();
-  useHelper(cameraRef, CameraHelper, 'cyan');
+  // useHelper(cameraRef, CameraHelper, 'cyan');
 
   useFrame(() => {
-    setProgress((prevProgress) => {
-      const nextProgress = (progressTarget.current - prevProgress) / 10;
-      // if (nextProgress < 0) nextProgress += 1;
-      return nextProgress;
-    });
+    setProgress((prevProgress) => (progressTarget.current - prevProgress) / 10);
 
-    const { x, y, z } = curve.getPointAt(progress % 1);
+    const { x, y, z } = curve.getPoint(progress);
     // a point just ahead of progress on the curve
-    const target = curve.getPointAt((progress + 0.05) % 1);
+    curve.getPoint(progress + lookAhead, lookAt);
     setCameraPosition([x, y, z]);
-    cameraRef.current.lookAt(target);
+    cameraRef.current.lookAt(lookAt);
   });
 
   const wheel = ({ deltaY }) => {
-    progressTarget.current += (deltaY * -0.0005);
+    progressTarget.current += (deltaY * tourSpeed);
+  };
+
+  const touchmove = (e) => {
+    console.log(e);
   };
 
   useEffect(() => {
     addEventListener('mousewheel', wheel);
+    addEventListener('touchmove', touchmove);
     return () => {
       removeEventListener('mousewheel', wheel);
+      removeEventListener('touchmove', touchmove);
     };
   }, []);
 
@@ -58,18 +68,29 @@ function Camera() {
     <PerspectiveCamera
       ref={cameraRef}
       position={cameraPosition}
-      makeDefault
+      makeDefault={makeDefault}
     />
   );
 }
 
-function Scene() {
+function OverviewCamera({ makeDefault }) {
+  return (
+    <PerspectiveCamera
+      makeDefault={makeDefault}
+      position={[0, 4, -4]}
+      rotation={[0.1, 0, 0]}
+    />
+  );
+}
+
+function Scene({ overview }) {
   return (
     <Canvas
       linear
       gl={{ toneMapping: 1, toneMappingExposure: 0.1 }}
     >
-      <Camera />
+      <TourCamera makeDefault={!overview} />
+      <OverviewCamera makeDefault={overview} />
       <Model />
       <Environment files={envFile} background />
       <Stars />
@@ -77,4 +98,20 @@ function Scene() {
   );
 }
 
-export default Scene;
+function App() {
+  const [overview, setOverview] = useState(false);
+
+  return (
+    <div className="app">
+      <Scene overview={overview} />
+      <img
+        type="button"
+        className="map"
+        onClick={() => { setOverview((prevOverview) => !prevOverview); }}
+        src={mapFile}
+      />
+    </div>
+  );
+}
+
+export default App;
