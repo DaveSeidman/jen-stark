@@ -1,0 +1,24 @@
+{
+  "pages": [
+    {
+      "title": "Art1",
+      "description": "Art 1 description",
+      "percentAlongTour": 0.14
+    },
+    {
+      "title": "Art2",
+      "description": "Art 2 description",
+      "percentAlongTour": 0.50
+    },
+    {
+      "title": "Art3",
+      "description": "Art 3 description",
+      "percentAlongTour": 0.66
+    },
+    {
+      "title": "Art4",
+      "description": "Art 4 description",
+      "percentAlongTour": 0.9
+    }
+  ]
+}
