@@ -10,7 +10,6 @@ function Model() {
   console.log(scene.getObjectByName('Art1'));
 
   scene.traverse((obj) => {
-    console.log(obj.isMesh);
     if (obj.isMesh) {
       // obj.material = wireMat;
     }
