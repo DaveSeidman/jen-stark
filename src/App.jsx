@@ -7,17 +7,25 @@ import Carousel from './components/carousel';
 
 function App() {
   const [overview, setOverview] = useState(false);
+  const [scrollPercent, setScrollPercent] = useState(0);
 
   return (
     <div className="app">
-      <Scene overview={overview} />
-      <Carousel pages={pages} />
+      <Scene
+        overview={overview}
+        scrollPercent={scrollPercent}
+      />
+      <Carousel
+        pages={pages}
+        setScrollPercent={setScrollPercent}
+      />
       <img
         type="button"
         className="map"
         onClick={() => { setOverview((prevOverview) => !prevOverview); }}
         src={mapFile}
       />
+      <p className="debug">{scrollPercent}</p>
     </div>
   );
 }

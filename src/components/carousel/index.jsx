@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './index.scss';
 
-function Carousel({ pages }) {
+function Carousel({ pages, setScrollPercent }) {
   const pagesRef = useRef();
   const [pagesArray, setPagesArray] = useState(pages);
 
@@ -21,7 +21,7 @@ function Carousel({ pages }) {
   const scroll = () => {
     const nextPagesArray = [...pagesArray];
     let update = false;
-    pagesArray.forEach((page) => {
+    pagesArray.forEach((page, index) => {
       const { top } = page.el.getBoundingClientRect();
       const { length } = pagesArray;
 
@@ -33,6 +33,8 @@ function Carousel({ pages }) {
         page.offset -= 1;
         update = true;
       }
+
+      if (index === 0) setScrollPercent((top + innerHeight) / (innerHeight * length));
     });
     if (update) setPagesArray(nextPagesArray);
   };

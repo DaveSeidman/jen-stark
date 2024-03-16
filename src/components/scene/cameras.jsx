@@ -7,12 +7,13 @@ import envFile from '../../assets/images/metro_noord_4k.hdr';
 import { points } from '../../assets/models/path1.json';
 
 const curve = new CatmullRomCurve3(points.map((p) => new Vector3(p.x, p.y, p.z)));
+const curveLength = curve.getLength();
 // curve.closed = true;
 const lookAt = new Vector3();
 const lookAhead = 0.05;
 const tourSpeed = -0.0005;
 
-export function TourCamera({ makeDefault }) {
+export function TourCamera({ makeDefault, scrollPercent }) {
   const [cameraPosition, setCameraPosition] = useState([0, 0, 0]);
   const [progress, setProgress] = useState(0);
   const progressTarget = useRef(0);
@@ -21,7 +22,10 @@ export function TourCamera({ makeDefault }) {
   const helper = useHelper(cameraRef, CameraHelper, 'cyan');
 
   useFrame(() => {
-    setProgress((prevProgress) => (progressTarget.current - prevProgress) / 10);
+    // setProgress((prevProgress) => (scrollPercent - prevProgress) / 10);
+    setProgress((prevProgress) => ((scrollPercent * 11.0818) - prevProgress) / 10);
+
+    console.log(progress);
 
     const { x, y, z } = curve.getPoint(progress);
     curve.getPoint(progress + lookAhead, lookAt);
@@ -33,19 +37,6 @@ export function TourCamera({ makeDefault }) {
     progressTarget.current += (deltaY * tourSpeed);
     if (progressTarget.current < 0) progressTarget.current = 11.08187483486707;
   };
-
-  const touchmove = (e) => {
-    // console.log(e);
-  };
-
-  useEffect(() => {
-    addEventListener('mousewheel', wheel);
-    addEventListener('touchmove', touchmove);
-    return () => {
-      removeEventListener('mousewheel', wheel);
-      removeEventListener('touchmove', touchmove);
-    };
-  }, []);
 
   return (
     <PerspectiveCamera

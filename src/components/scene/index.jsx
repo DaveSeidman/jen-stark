@@ -6,14 +6,14 @@ import envFile from '../../assets/images/metro_noord_4k.hdr';
 import Model from './model';
 import { TourCamera, OverviewCamera } from './cameras';
 
-function Scene({ overview }) {
+function Scene({ overview, scrollPercent }) {
   return (
     <Canvas
       linear
       gl={{ toneMapping: 2, toneMappingExposure: 1 }}
     >
       <Environment files={envFile} background />
-      <TourCamera makeDefault={!overview} />
+      <TourCamera makeDefault={!overview} scrollPercent={scrollPercent} />
       <OverviewCamera makeDefault={overview} />
       <Model />
     </Canvas>
