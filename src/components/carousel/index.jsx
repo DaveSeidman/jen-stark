@@ -29,6 +29,10 @@ function Carousel({ pages }) {
         page.offset += 1;
         update = true;
       }
+      if (top > (length * innerHeight) - innerHeight) {
+        page.offset -= 1;
+        update = true;
+      }
     });
     if (update) setPagesArray(nextPagesArray);
   };
