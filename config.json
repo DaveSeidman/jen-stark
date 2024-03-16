@@ -23,6 +23,30 @@
       "offset": 0,
       "description": "Art 4 description",
       "percentAlongTour": 0.9
+    },
+    {
+      "title": "Art5",
+      "offset": 0,
+      "description": "Art 4 description",
+      "percentAlongTour": 0.9
+    },
+    {
+      "title": "Art6",
+      "offset": 0,
+      "description": "Art 4 description",
+      "percentAlongTour": 0.9
+    },
+    {
+      "title": "Art7",
+      "offset": 0,
+      "description": "Art 4 description",
+      "percentAlongTour": 0.9
+    },
+    {
+      "title": "Art8",
+      "offset": 0,
+      "description": "Art 4 description",
+      "percentAlongTour": 0.9
     }
   ]
 }
