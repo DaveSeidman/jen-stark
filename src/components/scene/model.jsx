@@ -1,26 +1,16 @@
-import React, { useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Vector3, CameraHelper, CatmullRomCurve3, MeshBasicMaterial } from 'three';
-import { useHelper, PerspectiveCamera, Stars, useGLTF, Environment } from '@react-three/drei';
-import sceneFile from '../../assets/models/scene1.glb';
+import React from 'react';
+import { useGLTF } from '@react-three/drei';
+import sceneFile from '../../assets/models/scene4.glb';
 
 function Model() {
-  const { scene, animations } = useGLTF(sceneFile);
-  // const wireMat = new MeshBasicMaterial({ wireframe: true });
-  // console.log(scene.getObjectByName('Art1'));
-
-  // scene.traverse((obj) => {
-  //   if (obj.isMesh) {
-  //     // obj.material = wireMat;
-  //   }
-  // });
-
-  const mixerRef = useRef();
+  const gltf = useGLTF(sceneFile);
+  gltf.scene.traverse((obj) => {
+    if (obj.isLIght) console.log(obj);
+  });
 
   return (
     <group>
-      <primitive object={scene} />
-      <animationMixer ref={mixerRef} clip={animations[0]} />
+      <primitive object={gltf.scene} />
     </group>
   );
 }

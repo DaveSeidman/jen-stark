@@ -4,6 +4,7 @@ import './index.scss';
 import { pages } from '../config.json';
 import Scene from './components/scene';
 import Carousel from './components/carousel';
+import Nav from './components/Nav';
 
 function App() {
   const [overview, setOverview] = useState(false);
@@ -26,6 +27,7 @@ function App() {
         src={mapFile}
       />
       <p className="debug">{scrollPercent}</p>
+      <Nav />
     </div>
   );
 }

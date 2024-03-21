@@ -6,35 +6,35 @@ function Carousel({ pages, setScrollPercent }) {
   const [pagesArray, setPagesArray] = useState(pages);
 
   useEffect(() => {
-    console.log(pagesRef.current);
-    // if(!pagesArray)
     const array = Array.from(pagesRef.current.children);
     const nextPagesArray = [...pagesArray];
     nextPagesArray.forEach((page, index) => {
       page.el = array[index];
     });
     setPagesArray(nextPagesArray);
-    // pagesArray.current = array.map((page, index) => ({ el: page, id: index, offset: 0 }));
-    // console.log(pagesArray);
   }, []);
 
   const scroll = () => {
     const nextPagesArray = [...pagesArray];
     let update = false;
     pagesArray.forEach((page, index) => {
-      const { top } = page.el.getBoundingClientRect();
+      const { top, height } = page.el.getBoundingClientRect();
       const { length } = pagesArray;
 
-      if (top < -innerHeight) {
+      if (top < -height) {
         page.offset += 1;
         update = true;
       }
-      if (top > (length * innerHeight) - innerHeight) {
+      if (top > (length * height) - height) {
         page.offset -= 1;
         update = true;
       }
 
-      if (index === 0) setScrollPercent((top + innerHeight) / (innerHeight * length));
+      if (index === 0) {
+        const scrollPercent = 1 - ((top + height) / (height * length));
+        // setScrollPercent(scrollPercent > 0 ? scrollPercent : 0);
+        setScrollPercent(Math.max(scrollPercent, 0));
+      }
     });
     if (update) setPagesArray(nextPagesArray);
   };
@@ -46,18 +46,25 @@ function Carousel({ pages, setScrollPercent }) {
         className="carousel-pages"
         onScroll={scroll}
       >
-        {pagesArray.map((page, index) => (
-          <div
-            key={index}
-            className="carousel-pages-page"
-            style={{
-              top: `${index * innerHeight}px`,
-              transform: `translateY(${(page.offset * pagesArray.length) * innerHeight}px)`,
-            }}
-          >
-            <h1>{page.title}</h1>
-          </div>
-        ))}
+        {
+          pagesArray.map((page, index) => {
+            const height = page.el ? page.el.getBoundingClientRect().height : 0;
+            const length = pagesArray.length;
+
+            return (
+              <div
+                key={page.slug}
+                className="carousel-pages-page"
+                style={{
+                  top: `${index * innerHeight}px`,
+                  transform: `translateY(${(page.offset * length) * height}px)`,
+                }}
+              >
+                <div className="carousel-pages-page-title">{page.title}</div>
+              </div>
+            );
+          })
+        }
       </div>
     </div>
   );

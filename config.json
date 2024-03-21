@@ -2,48 +2,28 @@
   "pages": [
     {
       "title": "Art1",
+      "slug": "art1",
       "offset": 0,
       "description": "Art 1 description",
       "percentAlongTour": 0.14
     },
     {
       "title": "Art2",
+      "slug": "art2",
       "offset": 0,
       "description": "Art 2 description",
       "percentAlongTour": 0.50
     },
     {
       "title": "Art3",
+      "slug": "art3",
       "offset": 0,
       "description": "Art 3 description",
       "percentAlongTour": 0.66
     },
     {
       "title": "Art4",
-      "offset": 0,
-      "description": "Art 4 description",
-      "percentAlongTour": 0.9
-    },
-    {
-      "title": "Art5",
-      "offset": 0,
-      "description": "Art 4 description",
-      "percentAlongTour": 0.9
-    },
-    {
-      "title": "Art6",
-      "offset": 0,
-      "description": "Art 4 description",
-      "percentAlongTour": 0.9
-    },
-    {
-      "title": "Art7",
-      "offset": 0,
-      "description": "Art 4 description",
-      "percentAlongTour": 0.9
-    },
-    {
-      "title": "Art8",
+      "slug": "art4",
       "offset": 0,
       "description": "Art 4 description",
       "percentAlongTour": 0.9

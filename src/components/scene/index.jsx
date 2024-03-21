@@ -1,21 +1,37 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Environment } from '@react-three/drei';
+import { Environment, Html, useProgress } from '@react-three/drei';
 import envFile from '../../assets/images/metro_noord_4k.hdr';
 
 import Model from './model';
 import { TourCamera, OverviewCamera } from './cameras';
+import './index.scss';
 
-function Scene({ overview, scrollPercent }) {
+function Loader() {
+  const { progress } = useProgress();
+  console.log('progress', progress);
+  return (
+    <Html center>
+      {progress}
+      {' '}
+      % loaded
+    </Html>
+  );
+}
+
+function Scene({ overview, scrollPercent, scrollOffset }) {
   return (
     <Canvas
+      className="scene"
       linear
       gl={{ toneMapping: 2, toneMappingExposure: 1 }}
     >
       <Environment files={envFile} background />
-      <TourCamera makeDefault={!overview} scrollPercent={scrollPercent} />
+      <TourCamera makeDefault={!overview} scrollPercent={scrollPercent} scrollOffset={scrollOffset} />
       <OverviewCamera makeDefault={overview} />
-      <Model />
+      <Suspense fallback={<Loader />}>
+        <Model />
+      </Suspense>
     </Canvas>
   );
 }
