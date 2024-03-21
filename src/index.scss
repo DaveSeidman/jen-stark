@@ -7,6 +7,8 @@ $green: rgb(67, 196, 154);
 $purple: rgb(103, 37, 234);
 $yellow: rgb(255, 221, 9);
 
+.yellow { color: $yellow; }
+
 .back-blue { background: $blue; }
 .back-red { background: $red; }
 .back-orange { background: $orange; }

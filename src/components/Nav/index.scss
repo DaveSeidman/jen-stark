@@ -2,23 +2,24 @@
 
 .nav {
   display: flex;
-
-  height: 20rem;
+  // height: 20rem;
+  flex-direction: row;
+  flex-wrap: wrap;
   background: #020202;
   color: white;
 
   &-title, &-links {
-    flex: 1;
+    width: 50%;
   }
 
   &-title {
     display: flex;
-    height: 100%;
-    flex-direction: column;
-    flex-wrap: wrap;
+    height: 20rem;
     background-color: $blue;
     font-size: 2rem;
-
+    span {
+      display: block;
+    }
   }
 
   &-links {
@@ -34,4 +35,19 @@
     }
   }
 
+}
+
+@media screen and (max-width: 720px ) {
+  .nav {
+    // flex-wrap: wrap;
+    & > * {
+      width: 100%;
+    }
+
+    &-links {
+      a {
+        padding: 1rem;
+      }
+    }
+  }
 }

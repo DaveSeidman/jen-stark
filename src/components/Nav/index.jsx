@@ -10,7 +10,7 @@ function Nav() {
         <h1>
           <span className="large">Cascade</span>
           <span>A Jen Stark Experience</span>
-          <span className="yelloe">Coming to LA</span>
+          <span className="yellow">Coming to LA</span>
         </h1>
       </div>
       <div className="nav-links">
