@@ -5,6 +5,8 @@ import { pages } from '../config.json';
 import Scene from './components/scene';
 import Carousel from './components/carousel';
 import Nav from './components/Nav';
+import Experience from './components/experience';
+import Artist from './components/artist';
 
 function App() {
   const [overview, setOverview] = useState(false);
@@ -28,6 +30,8 @@ function App() {
       />
       <p className="debug">{scrollPercent}</p>
       <Nav />
+      <Experience />
+      <Artist />
     </div>
   );
 }

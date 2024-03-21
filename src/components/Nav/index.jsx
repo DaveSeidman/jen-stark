@@ -17,7 +17,7 @@ function Nav() {
         <a className="back-red">Experience</a>
         <a className="back-orange">Artist</a>
         <a className="back-green">Venue</a>
-        <a className="back-purple">Partnet</a>
+        <a className="back-purple">Partner</a>
       </div>
     </div>
   );

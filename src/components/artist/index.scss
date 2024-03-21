@@ -1,0 +1,17 @@
+@import '../../index.scss';
+
+.artist {
+  display: flex;
+  background: $purple;
+  color: white;
+  &-photo {
+
+  }
+
+  &-text {
+    padding: 2rem;
+    h2 {
+      margin: 0;
+    }
+  }
+}

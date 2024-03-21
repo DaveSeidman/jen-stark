@@ -1,5 +1,11 @@
 @import '../../index.scss';
 
 .experience {
+  padding: 2rem;
+  background: white;
   color: $blue;
+
+  h2 {
+    margin: 0;
+  }
 }
