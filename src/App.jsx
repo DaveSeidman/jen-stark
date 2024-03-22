@@ -4,7 +4,7 @@ import './index.scss';
 import { pages } from '../config.json';
 import Scene from './components/scene';
 import Carousel from './components/carousel';
-import Nav from './components/Nav';
+import Nav from './components/nav';
 import Experience from './components/experience';
 import Artist from './components/artist';
 import Venue from './components/venue';

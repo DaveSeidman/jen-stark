@@ -5,7 +5,11 @@
   background: white;
   color: $blue;
 
-  h2 {
-    margin: 0;
+  &-body {
+    max-width: 1000px;
+    margin: auto;
+    h2 {
+      margin: 0;
+    }
   }
 }

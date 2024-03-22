@@ -1,6 +1,18 @@
 .venue {
-  min-height: 20rem;
+  // min-height: 20rem;
+  background: url('../../assets/images/alloy.jpg');
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-  padding: 2rem;
-  background: url('../../assets/images/alloy.jpg');;
+  &-text {
+    width: calc(100% - 10rem);
+
+    max-width: calc(1000px - 4rem);
+    padding: 1rem 2rem;
+    margin: auto;
+    backdrop-filter: blur(.2rem) brightness(70%);
+    color: white;
+    // outline: 1px solid white;
+  }
 }
