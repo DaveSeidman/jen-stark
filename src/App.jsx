@@ -35,9 +35,9 @@ function App() {
       <Nav />
       <Experience />
       <Artist />
-      <Venue />
-      <Partner />
-      <Footer />
+      {/* <Venue /> */}
+      {/* <Partner />
+      <Footer /> */}
     </div>
   );
 }
