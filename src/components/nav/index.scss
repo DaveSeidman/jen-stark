@@ -8,6 +8,10 @@
   background: #020202;
   color: white;
 
+  & > * {
+    font-family: 'Warsaw Gothic';
+  }
+
   &-title, &-links {
     width: 50%;
   }
@@ -36,6 +40,7 @@
     flex-direction: column;
 
     a {
+
       display: flex;
       flex: 1;
       align-items: center;

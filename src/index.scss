@@ -19,6 +19,26 @@ $yellow: rgb(255, 221, 9);
   font-family: 'Akshar';
   src: url('assets/fonts/Akshar-VariableFont_wght.ttf');
 }
+@font-face {
+  font-family: 'Helvetica';
+  font-weight: normal;
+  src: url('assets/fonts/Helvetica.ttf');
+}
+@font-face {
+  font-family: 'Helvetica';
+  font-weight: bold;
+  src: url('assets/fonts/Helvetica-Bold.ttf');
+}
+@font-face {
+  font-family: 'Warsaw Gothic';
+  font-weight: bold;
+  src: url('assets/fonts/WarsawGothicExt.otf');
+}
+@font-face {
+  font-family: 'Warsaw Gothic';
+  font-weight: normal;
+  src: url('assets/fonts/WarsawGothic.otf');
+}
 
 html, body, #root, .app {
   width: 100%;
@@ -28,9 +48,14 @@ html, body, #root, .app {
   font-size: 16px;
   scroll-behavior:smooth;
 
-  * {
-    font-family: 'Akshar';
-    font-weight: 500;
+  // * {
+  //   font-family: 'Helvetica';
+  //   font-weight: 500;
+  // }
+
+  h1, h2, h3 {
+    font-family: 'Warsaw Gothic';
+
   }
 
   h1 {
@@ -42,6 +67,7 @@ html, body, #root, .app {
   }
 
   p {
+    font-family: 'Helvetica';
     font-size: 1.5rem;
     font-weight: 400;
   }
