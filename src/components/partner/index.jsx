@@ -3,7 +3,7 @@ import './index.scss';
 
 function Partner() {
   return (
-    <div className="partner">
+    <div id="partner" className="partner">
       <div className="partner-body">
         <h2>Partnership Levels</h2>
         <div className="partner-body-tiers">

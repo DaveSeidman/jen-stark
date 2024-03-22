@@ -1,0 +1,15 @@
+@import '../../index.scss';
+
+.footer {
+  width: 100%;
+  height: 8rem;
+  background: $orange;
+
+  &-body {
+    display: flex;
+    max-width: 1000px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+}

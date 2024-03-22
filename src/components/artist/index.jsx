@@ -3,7 +3,7 @@ import './index.scss';
 
 function Artist() {
   return (
-    <div className="artist">
+    <div id="artist" className="artist">
       <div className="artist-body">
         <div className="artist-body-photo" />
         <div className="artist-body-text">

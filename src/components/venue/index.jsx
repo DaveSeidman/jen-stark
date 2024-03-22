@@ -3,7 +3,7 @@ import './index.scss';
 
 function Venue() {
   return (
-    <div className="venue">
+    <div id="venue" className="venue">
       <div className="venue-text">
         <h2>Venue</h2>
         <p>"The Alloy" stands as a beacon of innovation and integration in downtown LA's architectural landscape. This forthcoming building seamlessly blends residential, commercial, and dedicated art spaces, promising a dynamic and vibrant environment for residents and visitors alike. Its fusion of functions reflects a modern urban ethos, where living, working, and cultural experiences converge in one place.</p>

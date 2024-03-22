@@ -4,7 +4,7 @@ import './index.scss';
 
 function Experience() {
   return (
-    <div className="experience">
+    <div id="experience" className="experience">
       <div className="experience-body">
         <h2>Experience</h2>
         <p>Building on the success of its 2021 debut in New York, Cascade will unveil its next edition in LA's Arts District in fall 2024, housed in the brand-new, cutting-edge Alloy building. This initiative, a collaboration between visual artist Jen Stark and New York gallerist Josh Liner, promises a unique blend of marketing and merchandising opportunities through distinct engagement channels.</p>

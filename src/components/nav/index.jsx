@@ -15,10 +15,10 @@ function Nav() {
         </h1>
       </div>
       <div className="nav-links">
-        <a className="back-red">Experience</a>
-        <a className="back-orange">Artist</a>
-        <a className="back-green">Venue</a>
-        <a className="back-purple">Partner</a>
+        <a href="#experience" className="back-red">Experience</a>
+        <a href="#artist" className="back-orange">Artist</a>
+        <a href="#venue" className="back-green">Venue</a>
+        <a href="#partner" className="back-purple">Partner</a>
       </div>
     </div>
   );
