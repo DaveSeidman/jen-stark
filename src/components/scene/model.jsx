@@ -1,6 +1,6 @@
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
-import sceneFile from '../../assets/models/scene4.glb';
+import sceneFile from '../../assets/models/scene5.glb';
 
 function Model() {
   const gltf = useGLTF(sceneFile);

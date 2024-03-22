@@ -1,0 +1,22 @@
+.partner {
+
+  color: white;
+  &-body {
+    max-width: 1000px;
+    margin: auto;
+    &-tiers {
+      display: flex;
+      &-tier {
+        margin: 1rem;
+        h3 {
+          margin: 0;
+          font-size: 2rem;
+          text-align: center;
+        }
+        p {
+          font-size: 1rem !important;
+        }
+      }
+    }
+  }
+}

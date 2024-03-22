@@ -4,10 +4,11 @@ import './index.scss';
 import { pages } from '../config.json';
 import Scene from './components/scene';
 import Carousel from './components/carousel';
-import Nav from './components/nav';
+import Nav from './components/Nav';
 import Experience from './components/experience';
 import Artist from './components/artist';
 import Venue from './components/venue';
+import Partner from './components/partner';
 
 function App() {
   const [overview, setOverview] = useState(false);
@@ -34,7 +35,7 @@ function App() {
       <Experience />
       <Artist />
       <Venue />
-
+      <Partner />
     </div>
   );
 }

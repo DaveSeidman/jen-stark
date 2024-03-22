@@ -24,7 +24,7 @@ function Scene({ overview, scrollPercent, scrollOffset }) {
     <Canvas
       className="scene"
       linear
-      gl={{ toneMapping: 1, toneMappingExposure: 3 }}
+      gl={{ toneMapping: 1, toneMappingExposure: 2 }}
     >
       <Environment files={envFile} background />
       <TourCamera makeDefault={!overview} scrollPercent={scrollPercent} scrollOffset={scrollOffset} />
@@ -32,6 +32,7 @@ function Scene({ overview, scrollPercent, scrollOffset }) {
       <Suspense fallback={<Loader />}>
         <Model />
       </Suspense>
+      <ambientLight intensity={10} />
     </Canvas>
   );
 }
