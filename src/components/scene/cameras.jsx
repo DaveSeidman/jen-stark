@@ -4,7 +4,6 @@ import { Vector3, CameraHelper, CatmullRomCurve3 } from 'three';
 import { useHelper, PerspectiveCamera } from '@react-three/drei';
 import { points } from '../../assets/models/camera-path.json';
 
-console.log(points);
 const curve = new CatmullRomCurve3(points.map((p) => new Vector3(p.x, p.y, p.z)));
 const lookAt = new Vector3();
 const lookAhead = 0.01;

@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment, Html, useProgress } from '@react-three/drei';
-import envFile from '../../assets/images/metro_noord_4k.hdr';
+import envFile from '../../assets/images/spree_bank_2k.hdr';
 
 import Model from './model';
 import { TourCamera, OverviewCamera } from './cameras';
@@ -24,7 +24,7 @@ function Scene({ overview, scrollPercent, scrollOffset }) {
     <Canvas
       className="scene"
       linear
-      gl={{ toneMapping: 1, toneMappingExposure: 1 }}
+      gl={{ toneMapping: 3, toneMappingExposure: 2 }}
     >
       <Environment files={envFile} background />
       <TourCamera makeDefault={!overview} scrollPercent={scrollPercent} scrollOffset={scrollOffset} />
@@ -32,7 +32,6 @@ function Scene({ overview, scrollPercent, scrollOffset }) {
       <Suspense fallback={<Loader />}>
         <Model />
       </Suspense>
-      <ambientLight intensity={10} />
     </Canvas>
   );
 }

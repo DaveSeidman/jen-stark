@@ -40,6 +40,8 @@ $yellow: rgb(255, 221, 9);
   src: url('assets/fonts/WarsawGothic.otf');
 }
 
+$breakpoint: 1200px;
+
 html, body, #root, .app {
   width: 100%;
   padding: 0;
@@ -48,14 +50,8 @@ html, body, #root, .app {
   font-size: 16px;
   scroll-behavior:smooth;
 
-  // * {
-  //   font-family: 'Helvetica';
-  //   font-weight: 500;
-  // }
-
   h1, h2, h3 {
     font-family: 'Warsaw Gothic';
-
   }
 
   h1 {
@@ -97,5 +93,13 @@ html, body, #root, .app {
     left: 0;
     display: none;
     color: white;
+  }
+
+  .version {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: .75rem;
   }
 }

@@ -10,7 +10,9 @@ import Artist from './components/artist';
 import Venue from './components/venue';
 import Partner from './components/partner';
 import Footer from './components/footer';
+import { version } from '../package.json';
 
+console.log({ version });
 function App() {
   const [overview, setOverview] = useState(false);
   const [scrollPercent, setScrollPercent] = useState(0);
@@ -36,8 +38,9 @@ function App() {
       <Experience />
       <Artist />
       {/* <Venue /> */}
-      {/* <Partner />
-      <Footer /> */}
+      {/* <Partner /> */}
+      {/* <Footer /> */}
+      <p className="version">{`version: ${version}`}</p>
     </div>
   );
 }

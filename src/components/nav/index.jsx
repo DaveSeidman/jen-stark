@@ -2,8 +2,6 @@ import React from 'react';
 import './index.scss';
 
 function Nav() {
-  console.log('nav');
-
   return (
     <div className="nav">
       <div className="nav-title">
