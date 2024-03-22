@@ -7,6 +7,7 @@ import Carousel from './components/carousel';
 import Nav from './components/Nav';
 import Experience from './components/experience';
 import Artist from './components/artist';
+import Venue from './components/venue';
 
 function App() {
   const [overview, setOverview] = useState(false);
@@ -32,6 +33,8 @@ function App() {
       <Nav />
       <Experience />
       <Artist />
+      <Venue />
+
     </div>
   );
 }

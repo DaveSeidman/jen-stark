@@ -9,7 +9,8 @@ function Nav() {
       <div className="nav-title">
         <h1>
           <span className="large">Cascade</span>
-          <span>A Jen Stark Experience</span>
+          <span>A Jen Stark</span>
+          <span>Experience</span>
           <span className="yellow">Coming to LA</span>
         </h1>
       </div>

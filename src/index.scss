@@ -15,15 +15,41 @@ $yellow: rgb(255, 221, 9);
 .back-green { background: $green; }
 .back-purple { background: $purple; }
 
+@font-face {
+  font-family: 'Akshar';
+  src: url('assets/fonts/Akshar-VariableFont_wght.ttf');
+}
+
 html, body, #root, .app {
-  // overflow: hidden;
   width: 100%;
-  // height: 100%;
   padding: 0;
   margin: 0;
   background: black;
   font-size: 16px;
 
+  * {
+    font-family: 'Akshar';
+    font-weight: 500;
+  }
+
+  h1 {
+    // font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  h1, h2    {
+    text-transform: uppercase;
+  }
+
+  
   .map {
     position: absolute;
     right: 0;

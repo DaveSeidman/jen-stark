@@ -13,12 +13,21 @@
   }
 
   &-title {
-    display: flex;
-    height: 20rem;
+    // display: flex;
+    height: auto;
+    // flex-direction: column;
     background-color: $blue;
-    font-size: 2rem;
+    font-size: 2.5rem;
     span {
       display: block;
+      padding: 0 2rem;
+      line-height: 4.5rem;
+
+      white-space: nowrap;
+      &:first-child {
+        font-size: 5rem;
+        line-height: 5rem;
+      }
     }
   }
 
@@ -31,7 +40,9 @@
       flex: 1;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
+      cursor: pointer;
+      font-size: 4rem;
+      text-transform: uppercase;
     }
   }
 
