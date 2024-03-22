@@ -2,11 +2,12 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Vector3, CameraHelper, CatmullRomCurve3 } from 'three';
 import { useHelper, PerspectiveCamera } from '@react-three/drei';
-import { points } from '../../assets/models/path4.json';
+import { points } from '../../assets/models/camera-path.json';
 
+console.log(points);
 const curve = new CatmullRomCurve3(points.map((p) => new Vector3(p.x, p.y, p.z)));
 const lookAt = new Vector3();
-const lookAhead = 0.05;
+const lookAhead = 0.01;
 
 export function TourCamera({ makeDefault, scrollPercent }) {
   const [cameraPosition, setCameraPosition] = useState([0, 0, 0]);
@@ -33,8 +34,8 @@ export function TourCamera({ makeDefault, scrollPercent }) {
       ref={cameraRef}
       position={cameraPosition}
       makeDefault={makeDefault}
-      fov={50}
-      far={100}
+      fov={60}
+      far={1000}
     />
   );
 }

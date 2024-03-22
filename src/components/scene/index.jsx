@@ -24,7 +24,7 @@ function Scene({ overview, scrollPercent, scrollOffset }) {
     <Canvas
       className="scene"
       linear
-      gl={{ toneMapping: 1, toneMappingExposure: 2 }}
+      gl={{ toneMapping: 1, toneMappingExposure: 1 }}
     >
       <Environment files={envFile} background />
       <TourCamera makeDefault={!overview} scrollPercent={scrollPercent} scrollOffset={scrollOffset} />

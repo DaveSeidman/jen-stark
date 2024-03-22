@@ -32,7 +32,6 @@ function Carousel({ pages, setScrollPercent }) {
 
       if (index === 0) {
         const scrollPercent = 1 - ((top + height) / (height * length));
-        // setScrollPercent(scrollPercent > 0 ? scrollPercent : 0);
         setScrollPercent(Math.max(scrollPercent, 0));
       }
     });
