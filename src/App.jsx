@@ -17,12 +17,15 @@ function App() {
   const [scrollPercent, setScrollPercent] = useState(0);
   const lookAhead = 0.005;
 
+
+
   return (
     <div className="app">
       <Scene
         overview={overview}
         scrollPercent={scrollPercent}
         lookAhead={lookAhead}
+
       />
       <Carousel
         lookAhead={lookAhead}

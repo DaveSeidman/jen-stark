@@ -96,6 +96,7 @@ export function TourCamera({ makeDefault, scrollPercent, lookAhead }) {
 
 export function OverviewCamera({ makeDefault }) {
   return (
+
     <PerspectiveCamera
       makeDefault={makeDefault}
       position={[0, 400, 0]}

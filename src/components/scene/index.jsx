@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Line, BufferGeometry, LineBasicMaterial } from 'three';
-import { AdaptiveDpr, Environment, Html, useProgress } from '@react-three/drei';
+import { AdaptiveDpr, Environment, Html, OrbitControls, useProgress } from '@react-three/drei';
 import envFile from '../../assets/images/spree_bank_2k.hdr';
 import { points } from '../../assets/models/camera-path.json';
 
@@ -29,6 +29,7 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead }) {
     <Canvas
       className="scene"
       linear
+      dpr={[0.5, 1.5]}
       gl={{ toneMapping: 3, toneMappingExposure: 2 }}
     >
       <Environment files={envFile} background />
