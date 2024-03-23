@@ -19,7 +19,7 @@ function Loader() {
   );
 }
 
-function Scene({ overview, scrollPercent, scrollOffset }) {
+function Scene({ overview, scrollPercent, scrollOffset, lookAhead }) {
   return (
     <Canvas
       className="scene"
@@ -27,7 +27,7 @@ function Scene({ overview, scrollPercent, scrollOffset }) {
       gl={{ toneMapping: 3, toneMappingExposure: 2 }}
     >
       <Environment files={envFile} background />
-      <TourCamera makeDefault={!overview} scrollPercent={scrollPercent} scrollOffset={scrollOffset} />
+      <TourCamera makeDefault={!overview} lookAhead={lookAhead} scrollPercent={scrollPercent} scrollOffset={scrollOffset} />
       <OverviewCamera makeDefault={overview} />
       <Suspense fallback={<Loader />}>
         <Model />

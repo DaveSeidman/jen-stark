@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './index.scss';
 
-function Carousel({ pages, setScrollPercent }) {
+function Carousel({ pages, setScrollPercent, lookAhead }) {
   const pagesRef = useRef();
   const [pagesArray, setPagesArray] = useState(pages);
 
@@ -14,28 +14,34 @@ function Carousel({ pages, setScrollPercent }) {
     setPagesArray(nextPagesArray);
   }, []);
 
-  const scroll = () => {
-    const nextPagesArray = [...pagesArray];
-    let update = false;
-    pagesArray.forEach((page, index) => {
-      const { top, height } = page.el.getBoundingClientRect();
-      const { length } = pagesArray;
+  const scroll = ({ target }) => {
+    const { scrollTop, scrollHeight } = target;
+    const { height } = target.getBoundingClientRect();
+    const nextScrollPercent = (scrollTop / (scrollHeight - height)) * (1 - (lookAhead + 0.001));
+    console.log(nextScrollPercent);
+    setScrollPercent(nextScrollPercent);
 
-      if (top < -height) {
-        page.offset += 1;
-        update = true;
-      }
-      if (top > (length * height) - height) {
-        page.offset -= 1;
-        update = true;
-      }
+    // const nextPagesArray = [...pagesArray];
+    // const update = false;
+    // pagesArray.forEach((page, index) => {
+    //   const { top, height } = page.el.getBoundingClientRect();
+    //   const { length } = pagesArray;
 
-      if (index === 0) {
-        const scrollPercent = 1 - ((top + height) / (height * length));
-        setScrollPercent(Math.max(scrollPercent, 0));
-      }
-    });
-    if (update) setPagesArray(nextPagesArray);
+    //   // if (top < -height) {
+    //   //   page.offset += 1;
+    //   //   update = true;
+    //   // }
+    //   // if (top > (length * height) - height) {
+    //   //   page.offset -= 1;
+    //   //   update = true;
+    //   // }
+
+    //   if (index === 0) {
+    //     const scrollPercent = 1 - ((top + height) / (height * length));
+    //     setScrollPercent(Math.max(scrollPercent, 0));
+    //   }
+    // });
+    // if (update) setPagesArray(nextPagesArray);
   };
 
   return (

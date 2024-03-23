@@ -6,9 +6,8 @@ import { points } from '../../assets/models/camera-path.json';
 
 const curve = new CatmullRomCurve3(points.map((p) => new Vector3(p.x, p.y, p.z)));
 const lookAt = new Vector3();
-const lookAhead = 0.01;
 
-export function TourCamera({ makeDefault, scrollPercent }) {
+export function TourCamera({ makeDefault, scrollPercent, lookAhead }) {
   const [cameraPosition, setCameraPosition] = useState([0, 0, 0]);
   // const [progress, setProgress] = useState(0);
   const progress = useRef(0);
