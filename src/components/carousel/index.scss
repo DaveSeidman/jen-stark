@@ -4,6 +4,9 @@
   left: 0;
   width: 100%;
   height: calc(100% - 7rem);
+  * {
+    user-select: none;
+  }
 
   &-pages {
     position: absolute;

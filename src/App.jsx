@@ -7,16 +7,16 @@ import Carousel from './components/carousel';
 import Nav from './components/nav';
 import Experience from './components/experience';
 import Artist from './components/artist';
-import Venue from './components/venue';
-import Partner from './components/partner';
-import Footer from './components/footer';
+// import Venue from './components/venue';
+// import Partner from './components/partner';
+// import Footer from './components/footer';
 import { version } from '../package.json';
 
-console.log({ version });
 function App() {
   const [overview, setOverview] = useState(false);
   const [scrollPercent, setScrollPercent] = useState(0);
   const lookAhead = 0.005;
+
   return (
     <div className="app">
       <Scene

@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Line, BufferGeometry, LineBasicMaterial } from 'three';
-import { Environment, Html, useProgress } from '@react-three/drei';
+import { AdaptiveDpr, Environment, Html, useProgress } from '@react-three/drei';
 import envFile from '../../assets/images/spree_bank_2k.hdr';
 import { points } from '../../assets/models/camera-path.json';
 
@@ -34,6 +34,7 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead }) {
       <Environment files={envFile} background />
       <TourCamera makeDefault={!overview} lookAhead={lookAhead} scrollPercent={scrollPercent} scrollOffset={scrollOffset} />
       <OverviewCamera makeDefault={overview} />
+      {/* <AdaptiveDpr /> */}
       {overview
         && (
           <line

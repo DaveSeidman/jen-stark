@@ -1,9 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
-// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-
 import { Vector2, Vector3, CameraHelper, AxesHelper, CatmullRomCurve3 } from 'three';
 import { useHelper, PerspectiveCamera, OrbitControls } from '@react-three/drei';
+// import { OrbitControls } from 'orbit-controls-es6'; // Import OrbitControls
 import { points } from '../../assets/models/camera-path.json';
 
 const curve = new CatmullRomCurve3(points.map((p) => new Vector3(p.x, p.y, p.z)));
@@ -15,39 +14,75 @@ export function TourCamera({ makeDefault, scrollPercent, lookAhead }) {
   const { gl } = useThree();
   const containerRef = useRef();
   const cameraRef = useRef();
-  const rotationTarget = useRef(new Vector2())
+  const pointerTarget = useRef(new Vector2())
+  const rotationTarget = useRef(new Vector2());
+  const controlsRef = useRef(); // Ref for OrbitControls
+  const drag = useRef(false);
 
   useHelper(cameraRef, makeDefault ? AxesHelper : CameraHelper, 'cyan');
   useFrame(() => {
-    progress.current += (scrollPercent - progress.current) / 20; // TODO: make 20 a variable and base on frame delta
+    progress.current += (scrollPercent - progress.current) / 20;
     const { x, y, z } = curve.getPoint(progress.current);
     curve.getPoint(progress.current + lookAhead, lookAt);
     setContainerPosition([x, y, z]);
     containerRef.current.lookAt(lookAt);
-    cameraRef.current.rotation.x += (rotationTarget.current.x - cameraRef.current.rotation.x) / 20;
+    // cameraRef.current.rotation.x += (rotationTarget.current.x - cameraRef.current.rotation.x) / 20;
     cameraRef.current.rotation.y += (rotationTarget.current.y - cameraRef.current.rotation.y) / 20;
+    // cameraRef.current.rotation.y = rotationTarget.current.y;
+    // cameraRef.current.rotation.x = rotationTarget.current.x;
+
+    if (controlsRef.current) {
+      controlsRef.current.update(); // Update OrbitControls
+    }
   });
+
+  const pointerDown = (e) => {
+    drag.current = true;
+    const { clientX, clientY } = e;
+    const { width, height } = gl.domElement.getBoundingClientRect();
+    pointerTarget.current.x = clientY / height;
+    pointerTarget.current.y = clientX / width;
+  }
+
+  const pointerUp = () => {
+    drag.current = false;
+  }
 
   const pointerMove = (e) => {
     const { clientX, clientY } = e;
-    const { width, height } = gl.domElement.getBoundingClientRect()
-    rotationTarget.current.y = Math.PI - ((clientX / width) - .5) * .5;
-    rotationTarget.current.x = ((clientY / height) - .5) * .5;
+    const { width, height } = gl.domElement.getBoundingClientRect();
+    // rotationTarget.current.y = Math.PI - ((clientX / width) - 0.5) * 0.5;
+    // rotationTarget.current.x = ((clientY / height) - 0.5) * 0.5;
+
+
+    if (drag.current) {
+      // console.log(e)
+      rotationTarget.current.x += ((clientY / height) - pointerTarget.current.x) * 4;
+      rotationTarget.current.y += ((clientX / width) - pointerTarget.current.y) * 4;
+    }
+    pointerTarget.current.x = clientY / height;
+    pointerTarget.current.y = clientX / width;
   };
 
   useEffect(() => {
+    addEventListener('pointerdown', pointerDown);
     addEventListener('pointermove', pointerMove);
+    addEventListener('pointerup', pointerUp);
 
     return () => {
+      removeEventListener('pointerdown', pointerDown);
       removeEventListener('pointermove', pointerMove);
+      removeEventListener('pointerup', pointerUp);
     };
   }, []);
 
+  useEffect(() => {
+    rotationTarget.current.y = Math.PI;
+
+  }, [scrollPercent])
+
   return (
-    <group
-      ref={containerRef}
-      position={containerPosition}
-    >
+    <group ref={containerRef} position={containerPosition}>
       <PerspectiveCamera
         ref={cameraRef}
         rotation={[0, 0, 0]}
