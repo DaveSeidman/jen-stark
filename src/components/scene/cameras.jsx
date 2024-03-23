@@ -98,7 +98,7 @@ export function OverviewCamera({ makeDefault }) {
   return (
     <PerspectiveCamera
       makeDefault={makeDefault}
-      position={[0, 300, 0]}
+      position={[0, 400, 0]}
       rotation={[-90 * (Math.PI / 180), 0, 0]}
       fov={25}
     />

@@ -3,7 +3,7 @@ import './index.scss';
 
 function Nav() {
   return (
-    <div className="nav">
+    <div id="nav" className="nav">
       <div className="nav-title">
         <h1>
           <span className="large">Cascade</span>

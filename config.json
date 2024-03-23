@@ -5,112 +5,129 @@
       "slug": "exp",
       "offset": 0,
       "description": "Art 1 description",
-      "percentAlongTour": 0.14
+      "percentAlongTour": 0.14, 
+      "pathLength": 2.5
     },
     {
       "title": "Light Tunnel",
       "slug": "lt",
       "offset": 0,
       "description": "Art 2 description",
-      "percentAlongTour": 0.50
+      "percentAlongTour": 0.50, 
+      "pathLength": 1.25
     },
     {
       "title": "Strobe Wall",
       "slug": "sw",
       "offset": 0,
       "description": "Art 3 description",
-      "percentAlongTour": 0.66
+      "percentAlongTour": 0.66, 
+      "pathLength": 1.5
     },
     {
       "title": "Drip Cascade",
       "slug": "dc",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9
+      "percentAlongTour": 0.9, 
+      "pathLength": 0.8
     },
     {
       "title": "New Work (interactive)",
       "slug": "nwi",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9
+      "percentAlongTour": 0.9, 
+      "pathLength": 1
     },
     {
       "title": "New Work (cosmic bloom)",
       "slug": "nwcb",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9
+      "percentAlongTour": 0.9, 
+      "pathLength": 2
     },
     {
       "title": "Rainbow Cycle",
       "slug": "rc",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9
+      "percentAlongTour": 0.9, 
+      "pathLength": 0.75
     },
     {
       "title": "New Work (drip coloring book)",
       "slug": "nwdcb",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9
+      "percentAlongTour": 0.9, 
+      "pathLength": 1.5
     },
     {
       "title": "Digital Paint",
       "slug": "dp",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9
+      "percentAlongTour": 0.9, 
+      "pathLength": 1
+      
     },
     {
       "title": "Space Junk",
       "slug": "sj",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9
+      "percentAlongTour": 0.9, 
+      "pathLength": 3
     },
     {
       "title": "Kaleidoscopic Waterfall",
       "slug": "kw",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9
+      "percentAlongTour": 0.9, 
+      "pathLength": 0.8
     },
     {
       "title": "New Work",
       "slug": "nw2",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9
+      "percentAlongTour": 0.9, 
+      "pathLength": 1.0
     },
     {
       "title": "Gift Shop",
       "slug": "gs",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9
+      "percentAlongTour": 0.9, 
+      "pathLength": 1
     },
     {
       "title": "Lounge 1",
       "slug": "l1",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9
+      "percentAlongTour": 0.9, 
+      "pathLength": 0.7
     },
     {
       "title": "Lounge 2",
       "slug": "l2",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9
+      "percentAlongTour": 0.9, 
+      "pathLength": 0.7
     },
     {
       "title": "Fin",
       "slug": "f",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9
+      "percentAlongTour": 0.9, 
+      "pathLength": 0.25
     }
   ]
 }

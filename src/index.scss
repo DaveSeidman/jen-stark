@@ -89,12 +89,14 @@ html, body {
   }
 
   .scrollHint {
+    display: block;
     width: 100%;
     padding: 1rem;
     border: 0;
     margin: 0;
     background: $purple;
     color: white;
+    cursor: pointer;
     font-family: 'Warsaw Gothic';
     font-size: 3rem;
     text-align: center;

@@ -36,7 +36,7 @@ function App() {
         src={mapFile}
       />
       <p className="debug">{scrollPercent}</p>
-      <button className="scrollHint">pull up for more</button>
+      <a className="scrollHint" href="#nav">pull up for more</a>
       <Nav />
       <Experience />
       <Artist />

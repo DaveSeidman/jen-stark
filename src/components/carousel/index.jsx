@@ -1,20 +1,8 @@
-// TODO: make each page's height unique based on config so that longer rooms take up more vertical space
-
 import React, { useEffect, useState, useRef } from 'react';
 import './index.scss';
 
 function Carousel({ pages, setScrollPercent, lookAhead }) {
   const pagesRef = useRef();
-  const [pagesArray, setPagesArray] = useState(pages);
-
-  useEffect(() => {
-    const array = Array.from(pagesRef.current.children);
-    const nextPagesArray = [...pagesArray];
-    nextPagesArray.forEach((page, index) => {
-      page.el = array[index];
-    });
-    setPagesArray(nextPagesArray);
-  }, []);
 
   const scroll = ({ target }) => {
     const { scrollTop, scrollHeight } = target;
@@ -31,17 +19,13 @@ function Carousel({ pages, setScrollPercent, lookAhead }) {
         onScroll={scroll}
       >
         {
-          pagesArray.map((page, index) => {
-            const height = page.el ? page.el.getBoundingClientRect().height : 0;
-            const length = pagesArray.length;
-
+          pages.map((page) => {
             return (
               <div
                 key={page.slug}
                 className="carousel-pages-page"
                 style={{
-                  top: `${index * innerHeight}px`,
-                  transform: `translateY(${(page.offset * length) * height}px)`,
+                  height: `${page.pathLength * 100}vh`
                 }}
               >
                 <div className="carousel-pages-page-title">{page.title}</div>
