@@ -1,3 +1,5 @@
+// TODO: make each page's height unique based on config so that longer rooms take up more vertical space
+
 import React, { useEffect, useState, useRef } from 'react';
 import './index.scss';
 

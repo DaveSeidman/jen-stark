@@ -1,7 +1,7 @@
 .carousel {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100%;
   height: calc(100% - 7rem);
   * {
@@ -16,19 +16,28 @@
 
     &-page {
       display: flex;
-      width: 10rem;
-      height: 300%;
-      align-items: center;
-      justify-content: center;
-      opacity: .5;
+  
+      width: 20rem;
+      height: 500%;
+      // align-items: flex-start;
+      justify-content: flex-start;
+      border-bottom: 3px solid white;
+      background: url('../../assets/images/scroll-trail2.png');
+      background-repeat:repeat-y;
 
       &-title {
         display: flex;
-        width: 100%;
+        width: auto;
         height: 100%;
-        align-items: center;
+        flex-direction: column;
+        // align-items: center;
         justify-content: center;
+        margin: 1rem;
+        margin-left: 1rem;
         color: white;
+        font-family: 'Warsaw Gothic';
+        font-size: 2rem;
+        white-space: nowrap;
       }
     }
   }

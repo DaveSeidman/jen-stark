@@ -18,3 +18,32 @@ Switch To Edit Mode
 From the Right Tab from right menu select Edit
 Under LoopTools Select Space
 Use Export Vertices to JSON to create json of path vertices
+
+TODO:
+
+overall
+
+- Convert touchdesigner files to video for use in 3D environment
+- Remove top-down view
+- give user indications of where they are in tour
+
+modeling
+
+- Build out rooms
+- Model building entrace
+- Custom Lounges
+- Add People (silhouettes)
+
+styling
+
+- Video Textures
+- Emission
+- Lighting
+- Reflections
+- Finish HTML
+- Camera enhancements (DOF, Bloom)
+
+optimizations
+
+- Improve Orbit Controls, especially on mobile
+- Check performance on Mobile (use adaptive dpr)
