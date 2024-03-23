@@ -18,30 +18,7 @@ function Carousel({ pages, setScrollPercent, lookAhead }) {
     const { scrollTop, scrollHeight } = target;
     const { height } = target.getBoundingClientRect();
     const nextScrollPercent = (scrollTop / (scrollHeight - height)) * (1 - (lookAhead + 0.001));
-    console.log(nextScrollPercent);
     setScrollPercent(nextScrollPercent);
-
-    // const nextPagesArray = [...pagesArray];
-    // const update = false;
-    // pagesArray.forEach((page, index) => {
-    //   const { top, height } = page.el.getBoundingClientRect();
-    //   const { length } = pagesArray;
-
-    //   // if (top < -height) {
-    //   //   page.offset += 1;
-    //   //   update = true;
-    //   // }
-    //   // if (top > (length * height) - height) {
-    //   //   page.offset -= 1;
-    //   //   update = true;
-    //   // }
-
-    //   if (index === 0) {
-    //     const scrollPercent = 1 - ((top + height) / (height * length));
-    //     setScrollPercent(Math.max(scrollPercent, 0));
-    //   }
-    // });
-    // if (update) setPagesArray(nextPagesArray);
   };
 
   return (

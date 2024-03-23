@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Vector3, CameraHelper, CatmullRomCurve3 } from 'three';
+import { Vector3, CameraHelper, AxesHelper, CatmullRomCurve3 } from 'three';
 import { useHelper, PerspectiveCamera } from '@react-three/drei';
 import { points } from '../../assets/models/camera-path.json';
 
@@ -9,12 +9,10 @@ const lookAt = new Vector3();
 
 export function TourCamera({ makeDefault, scrollPercent, lookAhead }) {
   const [cameraPosition, setCameraPosition] = useState([0, 0, 0]);
-  // const [progress, setProgress] = useState(0);
   const progress = useRef(0);
 
   const cameraRef = useRef();
-  const helper = useHelper(cameraRef, CameraHelper, 'cyan');
-
+  useHelper(cameraRef, makeDefault ? AxesHelper : CameraHelper, 'cyan');
   useFrame(() => {
     progress.current += (scrollPercent - progress.current) / 20;
     try {
@@ -32,8 +30,8 @@ export function TourCamera({ makeDefault, scrollPercent, lookAhead }) {
       ref={cameraRef}
       position={cameraPosition}
       makeDefault={makeDefault}
-      fov={60}
-      far={1000}
+      fov={makeDefault ? 60 : 30}
+      far={makeDefault ? 1000 : 10}
     />
   );
 }

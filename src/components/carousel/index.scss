@@ -12,32 +12,20 @@
     overflow-y: scroll;
 
     &-page {
-      // position: absolute;
-      // top: 0;
-      // right: 0;
-      // bottom: 0;
       display: flex;
-      // width: 100%;
       width: 10rem;
       height: 300%;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(to bottom, red 0%, red 33.33%, orange 33.33%, orange 66.66%, yellow 66.66%);
       opacity: .5;
 
       &-title {
         display: flex;
-        // width: calc(100% - 4rem);
-        // height: calc(100% - 4rem);
-        // margin: 2rem;
         width: 100%;
         height: 100%;
         align-items: center;
         justify-content: center;
-        // background: rgba(255, 255, 255, .2);
         color: white;
-        // outline: 1px solid red;
-        // text-align: center;
       }
     }
   }

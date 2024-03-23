@@ -90,9 +90,9 @@ html, body {
   .debug {
     position: absolute;
     top: 0;
-    left: 0;
-
-    height: 1rem;    // display: none;
+    left: 0;    
+    display: none;
+    height: 1rem;
     padding: 1rem;
     color: white;
   }
