@@ -1,6 +1,6 @@
 import React from 'react';
 import { useGLTF, useVideoTexture } from '@react-three/drei';
-import sceneFile from '../../assets/models/scene6.glb';
+import sceneFile from '../../assets/models/scene.glb';
 
 function Model() {
   const gltf = useGLTF(sceneFile);

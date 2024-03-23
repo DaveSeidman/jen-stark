@@ -2,112 +2,112 @@
   "pages": [
     {
       "title": "Entrance / Check In",
-      "slug": "art1",
+      "slug": "exp",
       "offset": 0,
       "description": "Art 1 description",
       "percentAlongTour": 0.14
     },
     {
       "title": "Light Tunnel",
-      "slug": "art2",
+      "slug": "lt",
       "offset": 0,
       "description": "Art 2 description",
       "percentAlongTour": 0.50
     },
     {
       "title": "Strobe Wall",
-      "slug": "art3",
+      "slug": "sw",
       "offset": 0,
       "description": "Art 3 description",
       "percentAlongTour": 0.66
     },
     {
       "title": "Drip Cascade",
-      "slug": "art4",
+      "slug": "dc",
       "offset": 0,
       "description": "Art 4 description",
       "percentAlongTour": 0.9
     },
     {
       "title": "New Work (interactive)",
-      "slug": "art4",
+      "slug": "nwi",
       "offset": 0,
       "description": "Art 4 description",
       "percentAlongTour": 0.9
     },
     {
       "title": "New Work (cosmic bloom)",
-      "slug": "art4",
+      "slug": "nwcb",
       "offset": 0,
       "description": "Art 4 description",
       "percentAlongTour": 0.9
     },
     {
       "title": "Rainbow Cycle",
-      "slug": "art4",
+      "slug": "rc",
       "offset": 0,
       "description": "Art 4 description",
       "percentAlongTour": 0.9
     },
     {
       "title": "New Work (drip coloring book)",
-      "slug": "art4",
+      "slug": "nwdcb",
       "offset": 0,
       "description": "Art 4 description",
       "percentAlongTour": 0.9
     },
     {
       "title": "Digital Paint",
-      "slug": "art4",
+      "slug": "dp",
       "offset": 0,
       "description": "Art 4 description",
       "percentAlongTour": 0.9
     },
     {
       "title": "Space Junk",
-      "slug": "art4",
+      "slug": "sj",
       "offset": 0,
       "description": "Art 4 description",
       "percentAlongTour": 0.9
     },
     {
       "title": "Kaleidoscopic Waterfall",
-      "slug": "art4",
+      "slug": "kw",
       "offset": 0,
       "description": "Art 4 description",
       "percentAlongTour": 0.9
     },
     {
       "title": "New Work",
-      "slug": "art4",
+      "slug": "nw2",
       "offset": 0,
       "description": "Art 4 description",
       "percentAlongTour": 0.9
     },
     {
       "title": "Gift Shop",
-      "slug": "art4",
+      "slug": "gs",
       "offset": 0,
       "description": "Art 4 description",
       "percentAlongTour": 0.9
     },
     {
       "title": "Lounge 1",
-      "slug": "art4",
+      "slug": "l1",
       "offset": 0,
       "description": "Art 4 description",
       "percentAlongTour": 0.9
     },
     {
       "title": "Lounge 2",
-      "slug": "art4",
+      "slug": "l2",
       "offset": 0,
       "description": "Art 4 description",
       "percentAlongTour": 0.9
     },
     {
       "title": "Fin",
-      "slug": "art4",
+      "slug": "f",
       "offset": 0,
       "description": "Art 4 description",
       "percentAlongTour": 0.9
