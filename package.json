@@ -26,7 +26,10 @@
     "stylint": "^2.0.0"
   },
   "eslintConfig": {
-    "extends": "airbnb",
+    "extends": [
+      "airbnb",
+      "plugin:@react-three"
+    ],
     "env": {
       "browser": true,
       "es6": true
