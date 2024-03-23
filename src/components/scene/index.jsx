@@ -16,11 +16,7 @@ function Loader() {
   const { progress } = useProgress();
   console.log('progress', progress);
   return (
-    <Html center>
-      {progress}
-      {' '}
-      % loaded
-    </Html>
+    <Html className="loader" center>{`${Math.round(progress)}%`}</Html>
   );
 }
 
@@ -30,7 +26,7 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead }) {
       className="scene"
       linear
       dpr={[0.5, 1.5]}
-      gl={{ toneMapping: 3, toneMappingExposure: 2 }}
+      gl={{ toneMapping: 3, toneMappingExposure: 1.5 }}
     >
       <Environment files={envFile} background />
       <TourCamera makeDefault={!overview} lookAhead={lookAhead} scrollPercent={scrollPercent} scrollOffset={scrollOffset} />

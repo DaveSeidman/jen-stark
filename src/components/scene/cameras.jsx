@@ -1,8 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { Vector2, Vector3, CameraHelper, AxesHelper, CatmullRomCurve3 } from 'three';
-import { useHelper, PerspectiveCamera, OrbitControls } from '@react-three/drei';
-// import { OrbitControls } from 'orbit-controls-es6'; // Import OrbitControls
+import { useHelper, PerspectiveCamera, OrbitControls, OrthographicCamera } from '@react-three/drei';
 import { points } from '../../assets/models/camera-path.json';
 
 const curve = new CatmullRomCurve3(points.map((p) => new Vector3(p.x, p.y, p.z)));
@@ -21,7 +20,7 @@ export function TourCamera({ makeDefault, scrollPercent, lookAhead }) {
 
   useHelper(cameraRef, makeDefault ? AxesHelper : CameraHelper, 'cyan');
   useFrame(() => {
-    progress.current += (scrollPercent - progress.current) / 20;
+    progress.current += ((scrollPercent * (1 - (lookAhead * 2))) - progress.current) / 20;
     const { x, y, z } = curve.getPoint(progress.current);
     curve.getPoint(progress.current + lookAhead, lookAt);
     setContainerPosition([x, y, z]);
@@ -97,11 +96,11 @@ export function TourCamera({ makeDefault, scrollPercent, lookAhead }) {
 export function OverviewCamera({ makeDefault }) {
   return (
 
-    <PerspectiveCamera
+    <OrthographicCamera
       makeDefault={makeDefault}
-      position={[0, 400, 0]}
+      position={[0, 100, 0]}
       rotation={[-90 * (Math.PI / 180), 0, 0]}
-      fov={25}
+      zoom={5}
     />
   );
 }

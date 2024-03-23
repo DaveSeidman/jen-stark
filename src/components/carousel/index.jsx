@@ -7,7 +7,7 @@ function Carousel({ pages, setScrollPercent, lookAhead }) {
   const scroll = ({ target }) => {
     const { scrollTop, scrollHeight } = target;
     const { height } = target.getBoundingClientRect();
-    const nextScrollPercent = (scrollTop / (scrollHeight - height)) * (1 - (lookAhead + 0.001));
+    const nextScrollPercent = (scrollTop / (scrollHeight - height));
     setScrollPercent(nextScrollPercent);
   };
 
@@ -28,7 +28,7 @@ function Carousel({ pages, setScrollPercent, lookAhead }) {
                   height: `${page.pathLength * 100}vh`
                 }}
               >
-                <div className="carousel-pages-page-title">{page.title}</div>
+                {/* <div className="carousel-pages-page-title">{page.title}</div> */}
               </div>
             );
           })

@@ -11,6 +11,7 @@ import Artist from './components/artist';
 // import Partner from './components/partner';
 // import Footer from './components/footer';
 import { version } from '../package.json';
+import Progress from './components/progress';
 
 function App() {
   const [overview, setOverview] = useState(false);
@@ -38,7 +39,7 @@ function App() {
         onClick={() => { setOverview((prevOverview) => !prevOverview); }}
         src={mapFile}
       />
-      <p className="debug">{scrollPercent}</p>
+      <Progress scrollPercent={scrollPercent}></Progress>
       <a className="scrollHint" href="#nav">pull up for more</a>
       <Nav />
       <Experience />

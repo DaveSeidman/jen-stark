@@ -5,72 +5,81 @@
       "slug": "exp",
       "offset": 0,
       "description": "Art 1 description",
-      "percentAlongTour": 0.14, 
-      "pathLength": 2.5
+      "percentAlongTour": 0.06, 
+      "pathLength": 0.91,
+      "visible": true
     },
     {
       "title": "Light Tunnel",
       "slug": "lt",
       "offset": 0,
       "description": "Art 2 description",
-      "percentAlongTour": 0.50, 
-      "pathLength": 1.25
+      "percentAlongTour": 0.12, 
+      "pathLength": 1.0,
+      "visible": true
     },
     {
       "title": "Strobe Wall",
       "slug": "sw",
       "offset": 0,
       "description": "Art 3 description",
-      "percentAlongTour": 0.66, 
-      "pathLength": 1.5
+      "percentAlongTour": 0.20, 
+      "pathLength": 1.17,
+      "visible": true
     },
     {
       "title": "Drip Cascade",
       "slug": "dc",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9, 
-      "pathLength": 0.8
+      "percentAlongTour": 0.25, 
+      "pathLength": 0.43,
+      "visible": true
     },
     {
-      "title": "New Work (interactive)",
+      "title": "Interactive",
       "slug": "nwi",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9, 
-      "pathLength": 1
+      "percentAlongTour": 0.3, 
+      "pathLength": 0.62,
+      "visible": false
     },
     {
-      "title": "New Work (cosmic bloom)",
+      "title": "Cosmic Bloom",
       "slug": "nwcb",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9, 
-      "pathLength": 2
+      "percentAlongTour": 0.36, 
+      "pathLength": 1.09,
+      "visible": false
     },
     {
       "title": "Rainbow Cycle",
       "slug": "rc",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9, 
-      "pathLength": 0.75
+      "percentAlongTour": 0.43, 
+      "pathLength": 1.0,
+      "visible": true
     },
     {
-      "title": "New Work (drip coloring book)",
+      "title": "Drip Coloring Book",
       "slug": "nwdcb",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9, 
-      "pathLength": 1.5
+      "percentAlongTour": 0.48, 
+      "pathLength": 0.73,
+      "visible": true
     },
     {
       "title": "Digital Paint",
       "slug": "dp",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9, 
-      "pathLength": 1
+      "percentAlongTour": 0.53, 
+      "pathLength": 0.72,
+      "visible": true
       
     },
     {
@@ -78,56 +87,63 @@
       "slug": "sj",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9, 
-      "pathLength": 3
+      "percentAlongTour": 0.6, 
+      "pathLength": 1.05,
+      "visible": true
     },
     {
       "title": "Kaleidoscopic Waterfall",
       "slug": "kw",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9, 
-      "pathLength": 0.8
+      "percentAlongTour": 0.73, 
+      "pathLength": 1.76,
+      "visible": true
     },
     {
       "title": "New Work",
       "slug": "nw2",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9, 
-      "pathLength": 1.0
+      "percentAlongTour": 0.78, 
+      "pathLength": 0.7,
+      "visible": false
     },
     {
       "title": "Gift Shop",
       "slug": "gs",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9, 
-      "pathLength": 1
+      "percentAlongTour": 0.86, 
+      "pathLength": 1.3,
+      "visible": true
     },
     {
       "title": "Lounge 1",
       "slug": "l1",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9, 
-      "pathLength": 0.7
+      "percentAlongTour": 0.91, 
+      "pathLength": 0.62,
+      "visible": true
     },
     {
       "title": "Lounge 2",
       "slug": "l2",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9, 
-      "pathLength": 0.7
+      "percentAlongTour": 0.95, 
+      "pathLength": 0.6,
+      "visible": true
     },
     {
-      "title": "Fin",
+      "title": "End",
       "slug": "f",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.9, 
-      "pathLength": 0.25
+      "percentAlongTour": 1, 
+      "pathLength": 0.66,
+      "visible": false
     }
   ]
 }

@@ -19,17 +19,18 @@ function Model() {
   // const comingSoonTexture = useVideoTexture('jen-stark/coming-soon.mp4');
   useEffect(() => {
     gltf.scene.traverse((obj) => {
-      if (obj.material?.name.includes('video')) {
+      if (obj.material?.name.includes('mp4')) {
         const video = document.createElement('video');
         video.setAttribute('autoplay', true);
         video.setAttribute('playsinline', true);
         video.setAttribute('muted', true);
         video.setAttribute('loop', true);
-        video.src = `${location.pathname}/${obj.material.name.replace('-video', '.mp4')}`;
+        video.src = `${location.pathname}/${obj.material.name}`;
         // video.play().then(res => {
         //   console.log('played', res)
         // })
         const videoTexture = new VideoTexture(video)
+        videoTexture.flipY = false;
         videoTextures.current.push(videoTexture);
         // const nextTextures = [...videoTextures]
         // nextTextures.push(videoTexture);
@@ -49,9 +50,11 @@ function Model() {
     });
 
     addEventListener('click', startVideos);
+    addEventListener('scroll', startVideos);
 
     return () => {
       removeEventListener('click', startVideos)
+      removeEventListener('scroll', startVideos);
     }
   }, [])
 
