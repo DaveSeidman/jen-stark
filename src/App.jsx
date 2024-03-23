@@ -12,6 +12,8 @@ import Artist from './components/artist';
 // import Footer from './components/footer';
 import { version } from '../package.json';
 import Progress from './components/progress';
+import icon2D from './assets/images/2d.svg';
+import icon3D from './assets/images/3d.svg';
 
 function App() {
   const [overview, setOverview] = useState(false);
@@ -33,12 +35,11 @@ function App() {
         pages={pages}
         setScrollPercent={setScrollPercent}
       />
-      <img
+      <button
         type="button"
         className="map"
         onClick={() => { setOverview((prevOverview) => !prevOverview); }}
-        src={mapFile}
-      />
+      ><img src={overview ? icon3D : icon2D} /></button>
       <Progress scrollPercent={scrollPercent}></Progress>
       <a className="scrollHint" href="#nav">pull up for more</a>
       <Nav />
