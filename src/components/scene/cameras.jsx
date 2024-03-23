@@ -8,9 +8,10 @@ const curve = new CatmullRomCurve3(points.map((p) => new Vector3(p.x, p.y, p.z))
 const lookAt = new Vector3();
 
 export function TourCamera({ makeDefault, scrollPercent, lookAhead }) {
-  const [cameraPosition, setCameraPosition] = useState([0, 0, 0]);
+  const [containerPosition, setContainerPosition] = useState([0, 0, 0]);
   const progress = useRef(0);
 
+  const containerRef = useRef();
   const cameraRef = useRef();
   useHelper(cameraRef, makeDefault ? AxesHelper : CameraHelper, 'cyan');
   useFrame(() => {
@@ -18,21 +19,26 @@ export function TourCamera({ makeDefault, scrollPercent, lookAhead }) {
     try {
       const { x, y, z } = curve.getPoint(progress.current);
       curve.getPoint(progress.current + lookAhead, lookAt);
-      setCameraPosition([x, y, z]);
-      cameraRef.current.lookAt(lookAt);
+      setContainerPosition([x, y, z]);
+      containerRef.current.lookAt(lookAt);
     } catch (err) {
       console.log('err', progress.current);
     }
   });
 
   return (
-    <PerspectiveCamera
-      ref={cameraRef}
-      position={cameraPosition}
-      makeDefault={makeDefault}
-      fov={makeDefault ? 60 : 30}
-      far={makeDefault ? 1000 : 10}
-    />
+    <group
+      ref={containerRef}
+      position={containerPosition}
+    >
+      <PerspectiveCamera
+        ref={cameraRef}
+        rotation={[0, Math.PI, 0]}
+        makeDefault={makeDefault}
+        fov={makeDefault ? 60 : 30}
+        far={makeDefault ? 1000 : 10}
+      />
+    </group>
   );
 }
 
