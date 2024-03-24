@@ -7,10 +7,12 @@ function Progress({ scrollPercent }) {
   let activeIndex = 0;
   let closestAmount = Number.POSITIVE_INFINITY;
   pages.forEach((page, index) => {
-    const disatnceToPercent = Math.abs(scrollPercent - page.percentAlongTour)
-    if (disatnceToPercent < closestAmount) {
-      closestAmount = disatnceToPercent
-      activeIndex = index
+    if (page.visible) {
+      const disatnceToPercent = Math.abs(scrollPercent - page.percentAlongTour)
+      if (disatnceToPercent < closestAmount) {
+        closestAmount = disatnceToPercent
+        activeIndex = index
+      }
     }
   })
 

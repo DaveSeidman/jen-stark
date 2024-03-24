@@ -10,6 +10,7 @@ import Artist from './components/artist';
 // import Venue from './components/venue';
 // import Partner from './components/partner';
 // import Footer from './components/footer';
+import VideoCover from './components/videocover';
 import { version } from '../package.json';
 import Progress from './components/progress';
 import icon2D from './assets/images/2d.svg';
@@ -48,6 +49,7 @@ function App() {
       {/* <Venue /> */}
       {/* <Partner /> */}
       {/* <Footer /> */}
+      <VideoCover></VideoCover>
       <p className="version">{`version: ${version}`}</p>
     </div>
   );

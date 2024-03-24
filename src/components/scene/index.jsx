@@ -14,7 +14,6 @@ const lineMaterial = new LineBasicMaterial({ color: 0x0000ff });
 
 function Loader() {
   const { progress } = useProgress();
-  console.log('progress', progress);
   return (
     <Html className="loader" center>{`${Math.round(progress)}%`}</Html>
   );
@@ -25,8 +24,8 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead }) {
     <Canvas
       className="scene"
       linear
-      dpr={[0.5, 1.5]}
-      gl={{ toneMapping: 3, toneMappingExposure: 1.5 }}
+      dpr={[0.2, 1]}
+      gl={{ toneMapping: 1, toneMappingExposure: 1.5 }}
     >
       <Environment files={envFile} background />
       <TourCamera makeDefault={!overview} lookAhead={lookAhead} scrollPercent={scrollPercent} scrollOffset={scrollOffset} />

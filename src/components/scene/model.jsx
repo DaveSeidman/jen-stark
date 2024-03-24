@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei';
+import { MeshTransmissionMaterial, MeshReflectorMaterial } from '@pmndrs/vanilla'
 import { VideoTexture, RepeatWrapping } from 'three';
 import sceneFile from '../../assets/models/scene.glb';
 
@@ -8,8 +9,10 @@ function Model() {
   const gltf = useGLTF(sceneFile);
   const videoTextures = useRef([])
   const videosStarted = useRef(false);
+
   const startVideos = () => {
     if (videosStarted.current) return
+    console.log(videoTextures.current.length);
     videoTextures.current.forEach((texture) => {
       texture.source.data.play()
     })
@@ -18,52 +21,58 @@ function Model() {
 
   // const comingSoonTexture = useVideoTexture('jen-stark/coming-soon.mp4');
   useEffect(() => {
+
+
+
     gltf.scene.traverse((obj) => {
       if (obj.material?.name.includes('mp4')) {
+        // TODO: check here if this videoTexture already exists 
+        // if so, use it, if not, make a new one and push it to the array
         const video = document.createElement('video');
         video.setAttribute('autoplay', true);
         video.setAttribute('playsinline', true);
         video.setAttribute('muted', true);
         video.setAttribute('loop', true);
         video.src = `${location.pathname}/${obj.material.name}`;
-        // video.play().then(res => {
-        //   console.log('played', res)
-        // })
         const videoTexture = new VideoTexture(video)
         videoTexture.flipY = false;
         videoTexture.wrapS = RepeatWrapping;
         videoTextures.current.push(videoTexture);
-        // const nextTextures = [...videoTextures]
-        // nextTextures.push(videoTexture);
-        // console.log(nextTextures)
-        // setVideoTextures(nextTextures)
-
         obj.material.map = videoTexture;
-        // console.log(videoTexture)
-        // const texture = useVideoTexture('')
       }
-      // if (obj.material
-      //   console.log(obj)
-      // }
-      // if (obj.name.indexOf('coming-soon') >= 0) {
-      // obj.material.map = comingSoonTexture;
-      // }
+      // TODO: switch to jsx style <MeshTransmissionMaterial> for harmony
+      const glassMaterial = new MeshTransmissionMaterial({
+        transmission: .95,
+        roughness: .25,
+        color: 0xffffff,
+      });
+      if (obj.material?.name.toLowerCase().includes('glass')) {
+        obj.material = glassMaterial;
+      }
+
+      const mirrorMaterial = new MeshReflectorMaterial({
+        roughness: .05,
+        color: 0x303030
+      })
+
+      if (obj.material?.name.toLowerCase().includes('mirror')) {
+        // obj.material = mirrorMaterial;
+      }
     });
 
+
     addEventListener('click', startVideos);
-    addEventListener('scroll', startVideos);
+    // addEventListener('scroll', startVideos);
 
     return () => {
       removeEventListener('click', startVideos)
-      removeEventListener('scroll', startVideos);
+      // removeEventListener('scroll', startVideos);
     }
   }, [])
 
   useFrame(() => {
-    // console.log('frame', videoTextures.length)
     videoTextures.current.forEach(texture => {
       texture.update();
-      // console.log(texture);
     })
   })
 
