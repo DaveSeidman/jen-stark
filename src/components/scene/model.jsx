@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei';
-import { VideoTexture } from 'three';
+import { VideoTexture, RepeatWrapping } from 'three';
 import sceneFile from '../../assets/models/scene.glb';
 
 function Model() {
@@ -31,6 +31,7 @@ function Model() {
         // })
         const videoTexture = new VideoTexture(video)
         videoTexture.flipY = false;
+        videoTexture.wrapS = RepeatWrapping;
         videoTextures.current.push(videoTexture);
         // const nextTextures = [...videoTextures]
         // nextTextures.push(videoTexture);
