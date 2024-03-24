@@ -14,7 +14,7 @@ function VideoCover() {
         muted
         autoPlay
         loop
-        src={`${location.pathname}/StrobeWall.mp4`}
+        src={`${location.pathname}/VideoCover.mp4`}
       />
       <h1>Click to Begin Virtual Tour</h1>
     </div>
