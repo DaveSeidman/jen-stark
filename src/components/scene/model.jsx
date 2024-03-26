@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber'
+import { MeshStandardMaterial } from 'three'
 import { useGLTF } from '@react-three/drei';
 // import { MeshTransmissionMaterial, MeshReflectorMaterial } from '@pmndrs/vanilla'
 import { VideoTexture, RepeatWrapping } from 'three';
@@ -21,10 +22,13 @@ function Model() {
 
   // const comingSoonTexture = useVideoTexture('jen-stark/coming-soon.mp4');
   useEffect(() => {
-
-
-
     gltf.scene.traverse((obj) => {
+      if (obj.name === 'floor') {
+        obj.receiveShadow = true;
+        obj.castShadow = true;
+        obj.smoothness = 10
+        obj.material = new MeshStandardMaterial({ color: 0x000000, envMapIntensity: .5, roughness: 0, metalness: 0 })
+      }
       if (obj.material?.name.includes('mp4')) {
         // TODO: check here if this videoTexture already exists 
         // if so, use it, if not, make a new one and push it to the array
@@ -39,24 +43,6 @@ function Model() {
         videoTexture.wrapS = RepeatWrapping;
         videoTextures.current.push(videoTexture);
         obj.material.map = videoTexture;
-      }
-      // TODO: switch to jsx style <MeshTransmissionMaterial> for harmony
-      // const glassMaterial = new MeshTransmissionMaterial({
-      //   transmission: .95,
-      //   roughness: .25,
-      //   color: 0xffffff,
-      // });
-      // if (obj.material?.name.toLowerCase().includes('glass')) {
-      //   // obj.material = glassMaterial;
-      // }
-
-      // const mirrorMaterial = new MeshReflectorMaterial({
-      //   roughness: .05,
-      //   color: 0x303030
-      // })
-
-      if (obj.material?.name.toLowerCase().includes('mirror')) {
-        // obj.material = mirrorMaterial;
       }
     });
 
@@ -78,10 +64,6 @@ function Model() {
 
   return (
     <group>
-      {/* <mesh
-        geometry={<sphereBufferGeometry />}
-        material={<meshBasicMaterial />} 
-        /> */}
       <primitive object={gltf.scene} />
     </group >
   );

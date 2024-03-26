@@ -3,7 +3,7 @@ import mapFile from './assets/images/map2.png';
 import './index.scss';
 import { pages } from '../config.json';
 // import Scene from './components/scene';
-import Scene2 from './components/scene2';
+import Scene from './components/scene';
 import Carousel from './components/carousel';
 import Nav from './components/nav';
 import Experience from './components/experience';
@@ -32,11 +32,11 @@ function App() {
         lookAhead={lookAhead}
       /> */}
 
-      <Scene2
+      <Scene
         overview={overview}
         scrollPercent={scrollPercent}
         lookAhead={lookAhead}
-      ></Scene2>
+      ></Scene>
       <Carousel
         lookAhead={lookAhead}
         pages={pages}
