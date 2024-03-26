@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import mapFile from './assets/images/map2.png';
 import './index.scss';
 import { pages } from '../config.json';
+// import Scene from './components/scene';
 import Scene from './components/scene';
 import Carousel from './components/carousel';
 import Nav from './components/nav';
@@ -25,12 +26,17 @@ function App() {
 
   return (
     <div className="app">
+      {/* <Scene
+        overview={overview}
+        scrollPercent={scrollPercent}
+        lookAhead={lookAhead}
+      /> */}
+
       <Scene
         overview={overview}
         scrollPercent={scrollPercent}
         lookAhead={lookAhead}
-
-      />
+      ></Scene>
       <Carousel
         lookAhead={lookAhead}
         pages={pages}
@@ -49,7 +55,7 @@ function App() {
       {/* <Venue /> */}
       {/* <Partner /> */}
       {/* <Footer /> */}
-      <VideoCover></VideoCover>
+      {/* <VideoCover></VideoCover> */}
       <p className="version">{`version: ${version}`}</p>
     </div>
   );

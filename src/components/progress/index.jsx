@@ -24,6 +24,7 @@ function Progress({ scrollPercent }) {
       <div className="progress-labels">
         {pages.map((page, index) => (
           page.visible && (<span
+            key={page.slug}
             className={`progress-labels-label ${activeIndex === index ? 'active' : ''}`}
             style={{ left: `${page.percentAlongTour * 100}%` }}
           >{page.title}</span>)

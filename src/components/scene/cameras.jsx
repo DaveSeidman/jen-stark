@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
-import { Vector2, Vector3, CameraHelper, AxesHelper, CatmullRomCurve3 } from 'three';
-import { useHelper, PerspectiveCamera, OrbitControls, OrthographicCamera } from '@react-three/drei';
+import { Vector2, Vector3, CameraHelper, AxesHelper, CatmullRomCurve3, MeshBasicMaterial } from 'three';
+import { useHelper, PerspectiveCamera, OrbitControls, OrthographicCamera, Sphere, Cone } from '@react-three/drei';
 import { points } from '../../assets/models/camera-path.json';
 
 const curve = new CatmullRomCurve3(points.map((p) => new Vector3(p.x, p.y, p.z)));
@@ -15,10 +15,9 @@ export function TourCamera({ makeDefault, scrollPercent, lookAhead }) {
   const cameraRef = useRef();
   const pointerTarget = useRef(new Vector2())
   const rotationTarget = useRef(new Vector2());
-  const controlsRef = useRef(); // Ref for OrbitControls
   const drag = useRef(false);
 
-  useHelper(cameraRef, makeDefault ? AxesHelper : CameraHelper, 'cyan');
+  // useHelper(cameraRef, makeDefault ? AxesHelper : CameraHelper, 'cyan');
   useFrame(() => {
     progress.current += ((scrollPercent * (1 - (lookAhead * 2))) - progress.current) / 20;
     const { x, y, z } = curve.getPoint(progress.current);
@@ -29,10 +28,8 @@ export function TourCamera({ makeDefault, scrollPercent, lookAhead }) {
     cameraRef.current.rotation.y += (rotationTarget.current.y - cameraRef.current.rotation.y) / 20;
     // cameraRef.current.rotation.y = rotationTarget.current.y;
     // cameraRef.current.rotation.x = rotationTarget.current.x;
-
-    if (controlsRef.current) {
-      controlsRef.current.update(); // Update OrbitControls
-    }
+    // coneRef.current.rotation.z = rotationTarget.current.x;
+    // coneRef.current.rotation.y = rotationTarget.current.x;
   });
 
   const pointerDown = (e) => {
@@ -50,9 +47,6 @@ export function TourCamera({ makeDefault, scrollPercent, lookAhead }) {
   const pointerMove = (e) => {
     const { clientX, clientY } = e;
     const { width, height } = gl.domElement.getBoundingClientRect();
-    // rotationTarget.current.y = Math.PI - ((clientX / width) - 0.5) * 0.5;
-    // rotationTarget.current.x = ((clientY / height) - 0.5) * 0.5;
-
 
     if (drag.current) {
       // console.log(e)
@@ -81,21 +75,29 @@ export function TourCamera({ makeDefault, scrollPercent, lookAhead }) {
   }, [scrollPercent])
 
   return (
-    <group ref={containerRef} position={containerPosition}>
+    <group ref={containerRef}
+      position={containerPosition}
+    >
       <PerspectiveCamera
         ref={cameraRef}
-        rotation={[0, 0, 0]}
         makeDefault={makeDefault}
         fov={makeDefault ? 60 : 30}
         far={makeDefault ? 1000 : 10}
-      />
+      >
+        <Cone
+          visible={!makeDefault}
+          scale={[2, 4, 2]}
+          rotation={[Math.PI / 2, 0, 0]}
+          material={new MeshBasicMaterial({ wireframe: true })}
+        ></Cone>
+      </PerspectiveCamera>
+
     </group>
   );
 }
 
 export function OverviewCamera({ makeDefault }) {
   return (
-
     <OrthographicCamera
       makeDefault={makeDefault}
       position={[0, 100, 0]}

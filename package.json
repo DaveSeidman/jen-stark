@@ -1,6 +1,6 @@
 {
   "name": "jen-stark",
-  "version": "0.0.20",
+  "version": "0.0.22",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,13 +10,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "three": "0.142.0",
     "@pmndrs/vanilla": "^1.15.1",
-    "@react-three/drei": "^9.102.3",
     "@vitejs/plugin-react": "^4.2.1",
+    "leva": "^0.9.35",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.2",
-    "react-three-fiber": "^6.0.13",
+    "@react-three/drei": "9.17.1",
+    "@react-three/fiber": "8.2.0",
+    "@react-three/postprocessing": "2.6.1",
     "sass": "^1.71.1",
     "vite": "^5.1.5"
   },
