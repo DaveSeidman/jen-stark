@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei';
-import { MeshTransmissionMaterial, MeshReflectorMaterial } from '@pmndrs/vanilla'
+// import { MeshTransmissionMaterial, MeshReflectorMaterial } from '@pmndrs/vanilla'
 import { VideoTexture, RepeatWrapping } from 'three';
 import sceneFile from '../../assets/models/scene.glb';
 
@@ -41,19 +41,19 @@ function Model() {
         obj.material.map = videoTexture;
       }
       // TODO: switch to jsx style <MeshTransmissionMaterial> for harmony
-      const glassMaterial = new MeshTransmissionMaterial({
-        transmission: .95,
-        roughness: .25,
-        color: 0xffffff,
-      });
-      if (obj.material?.name.toLowerCase().includes('glass')) {
-        obj.material = glassMaterial;
-      }
+      // const glassMaterial = new MeshTransmissionMaterial({
+      //   transmission: .95,
+      //   roughness: .25,
+      //   color: 0xffffff,
+      // });
+      // if (obj.material?.name.toLowerCase().includes('glass')) {
+      //   // obj.material = glassMaterial;
+      // }
 
-      const mirrorMaterial = new MeshReflectorMaterial({
-        roughness: .05,
-        color: 0x303030
-      })
+      // const mirrorMaterial = new MeshReflectorMaterial({
+      //   roughness: .05,
+      //   color: 0x303030
+      // })
 
       if (obj.material?.name.toLowerCase().includes('mirror')) {
         // obj.material = mirrorMaterial;
@@ -78,8 +78,12 @@ function Model() {
 
   return (
     <group>
+      {/* <mesh
+        geometry={<sphereBufferGeometry />}
+        material={<meshBasicMaterial />} 
+        /> */}
       <primitive object={gltf.scene} />
-    </group>
+    </group >
   );
 }
 
