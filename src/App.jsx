@@ -26,12 +26,6 @@ function App() {
 
   return (
     <div className="app">
-      {/* <Scene
-        overview={overview}
-        scrollPercent={scrollPercent}
-        lookAhead={lookAhead}
-      /> */}
-
       <Scene
         overview={overview}
         scrollPercent={scrollPercent}
@@ -55,7 +49,7 @@ function App() {
       {/* <Venue /> */}
       {/* <Partner /> */}
       {/* <Footer /> */}
-      {/* <VideoCover></VideoCover> */}
+      <VideoCover></VideoCover>
       <p className="version">{`version: ${version}`}</p>
     </div>
   );
