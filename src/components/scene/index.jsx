@@ -61,7 +61,7 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead }) {
         stencil: false,
         depth: false,
         toneMapping: 1,
-        toneMappingExposure: 1
+        toneMappingExposure: .5
       }}
     >
       {/* <PerformanceMonitorApi onIncline={() => setDpr(2)} onDecline={() => setDpr(1)} ></PerformanceMonitorApi> */}
@@ -77,7 +77,9 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead }) {
         <Model />
       </Suspense>
       <EffectComposer disableNormalPass>
+
         <SSR {...props} />
+        <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} />
       </EffectComposer>
       {/* <perspectiveCamera makeDefault position={[0, 10, -100]} /> */}
       {/* <OrbitControls /> */}

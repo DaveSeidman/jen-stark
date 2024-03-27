@@ -32,7 +32,7 @@
       "slug": "dc",
       "offset": 0,
       "description": "Art 4 description",
-      "percentAlongTour": 0.25, 
+      "percentAlongTour": 0.3, 
       "pathLength": 0.43,
       "visible": true
     },
