@@ -45,7 +45,6 @@ function Model() {
         video.setAttribute('muted', true);
         video.setAttribute('loop', true);
         video.src = `${location.pathname}/${obj.material.name}`;
-        document.body.appendChild(video)
         const videoTexture = new VideoTexture(video)
         videoTexture.flipY = false;
         videoTexture.wrapS = RepeatWrapping;
