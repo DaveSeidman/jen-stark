@@ -12,6 +12,8 @@ import Artist from './components/artist';
 // import Partner from './components/partner';
 // import Footer from './components/footer';
 import VideoCover from './components/videocover';
+import VideoBreak from './components/videobreak';
+import Alloy from './components/alloy';
 import { version } from '../package.json';
 import Progress from './components/progress';
 import icon2D from './assets/images/2d.svg';
@@ -46,6 +48,8 @@ function App() {
       <Nav />
       <Experience />
       <Artist />
+      <VideoBreak />
+      <Alloy />
       {/* <Venue /> */}
       {/* <Partner /> */}
       {/* <Footer /> */}
