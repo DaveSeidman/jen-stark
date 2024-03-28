@@ -1,6 +1,8 @@
 @import '../../index.scss';
 
 .experience {
+  position: relative;
+  overflow: hidden;
   padding: 2rem;
   background: white;
   color: $blue;
@@ -10,6 +12,20 @@
     margin: auto;
     h2 {
       margin: 0;
+    }
+
+    .drip {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 20vw;
+
+      transform: translateY(-20vw);
+      transition: transform 1s;
+
+      &.active {
+        transform: translateY(0);
+      }
     }
   }
 }
