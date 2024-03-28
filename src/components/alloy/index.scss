@@ -1,5 +1,27 @@
 .alloy {
-  position: absolute;
-  display:none;
-  inset: 0;
+  position: relative;
+  height: 40vw;
+
+  &-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &-image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+      transition: opacity 2s, visibility 2s;
+    }
+  }
+
+  &-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20vw;
+    margin: 2rem;
+  }
 }
