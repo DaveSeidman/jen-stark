@@ -22,8 +22,6 @@ function App() {
   const [scrollPercent, setScrollPercent] = useState(0);
   const lookAhead = 0.005;
 
-
-
   return (
     <div className="app">
       <Scene
@@ -49,9 +47,9 @@ function App() {
       <VideoBreak />
       <Alloy />
       <Venue />
-
       <Opportunities />
       <VideoCover></VideoCover>
+      {/* TODO: have the click on videocover start the videotextures in <scene> */}
       <p className="version">{`version: ${version}`}</p>
     </div>
   );

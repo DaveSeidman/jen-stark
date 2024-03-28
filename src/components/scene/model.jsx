@@ -2,28 +2,22 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber'
 import { AnimationMixer, MeshStandardMaterial } from 'three'
 import { useGLTF } from '@react-three/drei';
-// import { MeshTransmissionMaterial, MeshReflectorMaterial } from '@pmndrs/vanilla'
 import { VideoTexture, RepeatWrapping } from 'three';
 import sceneFile from '../../assets/models/scene.glb';
 
 function Model() {
   const gltf = useGLTF(sceneFile);
-  const videoTextures = useRef([])
+  const videoTextures = useRef({})
   const videosStarted = useRef(false);
   let mixer;
 
-  // console.log(gltf.animations);
-
   const startVideos = () => {
     if (videosStarted.current) return
-    console.log(videoTextures.current.length);
-    videoTextures.current.forEach((texture) => {
-      texture.source.data.play()
+    Object.keys(videoTextures.current).forEach(name => {
+      videoTextures.current[name].data.play();
     })
     videosStarted.current = true;
   }
-
-  // const comingSoonTexture = useVideoTexture('jen-stark/coming-soon.mp4');
   useEffect(() => {
     gltf.scene.traverse((obj) => {
       if (obj.name === 'person') {
@@ -42,7 +36,7 @@ function Model() {
           normalMap: obj.material.normalMap
         })
       }
-      if (obj.material?.name.includes('mp4')) {
+      if (obj.material?.name.includes('mp4') && !videoTextures.current[obj.material.name]) {
         // TODO: check here if this videoTexture already exists 
         // if so, use it, if not, make a new one and push it to the array
         const video = document.createElement('video');
@@ -51,10 +45,11 @@ function Model() {
         video.setAttribute('muted', true);
         video.setAttribute('loop', true);
         video.src = `${location.pathname}/${obj.material.name}`;
+        document.body.appendChild(video)
         const videoTexture = new VideoTexture(video)
         videoTexture.flipY = false;
         videoTexture.wrapS = RepeatWrapping;
-        videoTextures.current.push(videoTexture);
+        videoTextures.current[obj.material.name] = videoTexture;
         obj.material.map = videoTexture;
         obj.material.emissiveMap = videoTexture;
       }
@@ -68,17 +63,15 @@ function Model() {
 
 
     addEventListener('click', startVideos);
-    // addEventListener('scroll', startVideos);
 
     return () => {
       removeEventListener('click', startVideos)
-      // removeEventListener('scroll', startVideos);
     }
   }, [])
 
   useFrame((_, delta) => {
-    videoTextures.current.forEach(texture => {
-      texture.update();
+    Object.keys(videoTextures.current).forEach(name => {
+      videoTextures.current[name].update();
     })
 
     if (mixer) mixer.update(delta)
