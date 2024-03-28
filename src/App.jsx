@@ -2,15 +2,13 @@ import React, { useRef, useState, useEffect } from 'react';
 import mapFile from './assets/images/map2.png';
 import './index.scss';
 import { pages } from '../config.json';
-// import Scene from './components/scene';
 import Scene from './components/scene';
 import Carousel from './components/carousel';
 import Nav from './components/nav';
 import Experience from './components/experience';
 import Artist from './components/artist';
 import Venue from './components/venue';
-// import Partner from './components/partner';
-// import Footer from './components/footer';
+import Opportunities from './components/opportunities';
 import VideoCover from './components/videocover';
 import VideoBreak from './components/videobreak';
 import Alloy from './components/alloy';
@@ -52,8 +50,7 @@ function App() {
       <Alloy />
       <Venue />
 
-      {/* <Partner /> */}
-      {/* <Footer /> */}
+      <Opportunities />
       <VideoCover></VideoCover>
       <p className="version">{`version: ${version}`}</p>
     </div>

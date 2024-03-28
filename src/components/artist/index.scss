@@ -36,7 +36,7 @@
   }
 }
 
-@media screen and (max-width: $minWidth ) {
+@media (max-width: $minWidth ) {
   .artist {
     &-body {
       & > * {

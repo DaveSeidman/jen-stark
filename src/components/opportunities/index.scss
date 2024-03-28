@@ -1,0 +1,50 @@
+@import '../../index.scss';
+
+.opportunities {
+  background: url('../../assets/images/background1.png');
+  background-size: cover;
+  color: white;
+  
+  &-body {
+    max-width: calc($maxWidth - 4rem);
+    padding: 1rem 2rem;
+    margin: 2rem auto;
+    background-color: rgba(0, 0, 0, .8);
+    h1, h2, p {
+      text-align: center;
+    }
+    h1 {
+      font-size: 4rem !important;
+    }
+
+    &-levels {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      &-level {
+        width: 33.33%;
+        margin: 1rem;
+        
+        h3 {
+          margin: 0;
+          font-size: 2rem;
+          text-align: center;
+        }
+        p {
+          font-size: 1rem !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $minWidth ) {
+  .opportunities {
+    &-body {
+      & * {
+        width: 100%;
+      }
+    }
+  }
+}
