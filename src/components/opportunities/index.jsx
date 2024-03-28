@@ -11,17 +11,17 @@ function Opportunities() {
           <div className='opportunities-body-levels-level'>
             <h2>Partnerships</h2>
             <p>Let's work together to shape a custom strategic investment opporunity for meaningful returns.</p>
-            <button type="button">Email Us</button>
+            <button className="email-button" type="button">Email Us</button>
           </div>
           <div className='opportunities-body-levels-level'>
             <h2>Sponsors</h2>
             <p>From the Cascade Lounge to our Bar, Digital to OOH, we have numbers ways for your brand to get involved.</p>
-            <button type="button">Email Us</button>
+            <button className="email-button" type="button">Email Us</button>
           </div>
           <div className='opportunities-body-levels-level'>
             <h2>Patronage</h2>
             <p>Looking to be an essential part of making Cascade a reality? Learn more about becoming a Patron.</p>
-            <button type="button">Email Us</button>
+            <button className="email-button" type="button">Email Us</button>
           </div>
         </div>
       </div>

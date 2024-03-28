@@ -2,6 +2,7 @@ import React, { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { BufferGeometry, MeshStandardMaterial, DoubleSide, LineBasicMaterial, MeshBasicMaterial } from 'three';
 import { Bloom, DepthOfField, EffectComposer, Noise, Vignette, SSR } from '@react-three/postprocessing'
+// import { BlurPass, Resizer, KernelSize, Resolution } from 'postprocessing'
 import { Environment, Html, PerspectiveCamera, Plane, Sphere, Box, RoundedBox, useProgress } from '@react-three/drei';
 import envFile from '../../assets/images/spree_bank_2k.hdr';
 import { TourCamera, OverviewCamera } from '../scene/cameras';
@@ -60,12 +61,12 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead }) {
         antialias: false,
         stencil: false,
         depth: false,
-        toneMapping: 1,
-        toneMappingExposure: .5
+        // toneMapping: 1,
+        // toneMappingExposure: .5
       }}
     >
       {/* <PerformanceMonitorApi onIncline={() => setDpr(2)} onDecline={() => setDpr(1)} ></PerformanceMonitorApi> */}
-      <ambientLight intensity={1} />
+      <ambientLight intensity={.25} />
       <TourCamera makeDefault={!overview} lookAhead={lookAhead} scrollPercent={scrollPercent} scrollOffset={scrollOffset} />
       <OverviewCamera makeDefault={overview} />
       {/* <Environment files={envFile} intensity={0.1} /> */}
@@ -77,12 +78,18 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead }) {
         <Model />
       </Suspense>
       <EffectComposer disableNormalPass>
-
+        {/* <Bloom
+          intensity={1.0} // The bloom intensity.
+          blurPass={undefined} // A blur pass.
+          kernelSize={KernelSize.LARGE} // blur kernel size
+          luminanceThreshold={0.9} // luminance threshold. Raise this value to mask out darker elements in the scene.
+          luminanceSmoothing={0.025} // smoothness of the luminance threshold. Range is [0, 1]
+          mipmapBlur={false} // Enables or disables mipmap blur.
+          resolutionX={Resolution.AUTO_SIZE} // The horizontal resolution.
+          resolutionY={Resolution.AUTO_SIZE} // The vertical resolution.
+        /> */}
         <SSR {...props} />
-        <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} />
       </EffectComposer>
-      {/* <perspectiveCamera makeDefault position={[0, 10, -100]} /> */}
-      {/* <OrbitControls /> */}
     </Canvas>
   )
 }

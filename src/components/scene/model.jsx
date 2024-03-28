@@ -4,17 +4,21 @@ import { AnimationMixer, MeshStandardMaterial } from 'three'
 import { useGLTF } from '@react-three/drei';
 import { VideoTexture, RepeatWrapping } from 'three';
 import sceneFile from '../../assets/models/scene.glb';
+// import { MeshTransmissionMaterial } from '@pmndrs/vanilla';
 
 function Model() {
+  // Ask GPT if we should move the gltf loading outside of here
   const gltf = useGLTF(sceneFile);
   const videoTextures = useRef({})
   const videosStarted = useRef(false);
-  let mixer;
+  const mixer = useRef();
+
+  const tranmissionMat = useRef();
 
   const startVideos = () => {
     if (videosStarted.current) return
-    Object.keys(videoTextures.current).forEach(name => {
-      videoTextures.current[name].data.play();
+    Object.keys(videoTextures.current).forEach((name) => {
+      videoTextures.current[name].source.data.play();
     })
     videosStarted.current = true;
   }
@@ -22,6 +26,15 @@ function Model() {
     gltf.scene.traverse((obj) => {
       if (obj.name === 'person') {
         obj.frustumCulled = false;
+      }
+
+      if (obj.material && obj.material.name.toLowerCase().includes('glass')) {
+        // console.log(obj)
+      }
+
+      if (obj.material && obj.material.name === 'neon-yellow') {
+        // obj.material.emissiveIntensity = 100;
+        // console.log(obj.material);
       }
 
       if (obj.name === 'floor') {
@@ -55,11 +68,10 @@ function Model() {
     });
 
 
-    // console.log(gltf.animations);
-    // mixer = new AnimationMixer(gltf);
-    // const action = mixer.clipAction(gltf.animations[0]);
+    mixer.current = new AnimationMixer(gltf);
+    const action = mixer.current.clipAction(gltf.animations[1]);
+    console.log(action)
     // action.play();
-
 
     addEventListener('click', startVideos);
 
@@ -73,12 +85,15 @@ function Model() {
       videoTextures.current[name].update();
     })
 
-    if (mixer) mixer.update(delta)
+    if (mixer.current) {
+      mixer.current.update(delta)
+    }
   })
 
   return (
     <group>
       <primitive object={gltf.scene} />
+      {/* <meshTransmissionMaterial ref={tranmissionMat} /> */}
     </group >
   );
 }
