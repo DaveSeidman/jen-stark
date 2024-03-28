@@ -1,18 +1,40 @@
+@import '../../index.scss';
+
 .venue {
-  // min-height: 20rem;
-  background: url('../../assets/images/alloy.jpg');
-  background-position: 0% 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
 
-  &-text {
-    width: calc(100% - 10rem);
+  background: $purple;
 
-    max-width: calc(1000px - 4rem);
-    padding: 1rem 2rem;
+  &-body {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: $maxWidth;
+    flex-wrap: wrap;
     margin: auto;
-    backdrop-filter: blur(.2rem) brightness(70%);
-    color: white;
-    // outline: 1px solid white;
+
+    &-map {
+      width: 33.33%;
+      min-height: 50vh;
+      background: $red;
+      background-image: url('../../assets/images/alloy-map.png');
+      background-position: center;
+      background-size: cover;
+    }
+
+    &-text {
+      width: calc(66.66% - 4rem);
+      padding: 0 2rem;
+      color: white;
+    }
+  }
+}
+
+@media (max-width: $minWidth) {
+  .venue {
+    &-body {
+      &-map {
+        width: 100%;
+      }
+    }
   }
 }

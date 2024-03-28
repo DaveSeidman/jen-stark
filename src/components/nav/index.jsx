@@ -14,9 +14,9 @@ function Nav() {
       </div>
       <div className="nav-links">
         <a href="#experience" className="back-red">Experience</a>
-        <a href="#artist" className="back-orange">Artist</a>
+        <a href="#artist" className="back-yellow">Artist</a>
         <a href="#venue" className="back-green">Venue</a>
-        <a href="#partner" className="back-purple">Partner</a>
+        <a href="#opportunities" className="back-orange">Opportunities</a>
       </div>
     </div>
   );

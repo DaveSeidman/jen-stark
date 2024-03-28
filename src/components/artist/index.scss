@@ -6,7 +6,7 @@
     position: relative;
     display: flex;
     width: 100%;
-    max-width: $breakpoint;
+    max-width: $maxWidth;
     flex-wrap: wrap;
     margin: auto;
 
@@ -36,7 +36,7 @@
   }
 }
 
-@media screen and (max-width: 720px ) {
+@media screen and (max-width: $minWidth ) {
   .artist {
     &-body {
       & > * {

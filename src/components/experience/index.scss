@@ -6,7 +6,7 @@
   color: $blue;
 
   &-body {
-    max-width: $breakpoint;
+    max-width: $maxWidth;
     margin: auto;
     h2 {
       margin: 0;

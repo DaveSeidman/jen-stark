@@ -8,7 +8,7 @@ import Carousel from './components/carousel';
 import Nav from './components/nav';
 import Experience from './components/experience';
 import Artist from './components/artist';
-// import Venue from './components/venue';
+import Venue from './components/venue';
 // import Partner from './components/partner';
 // import Footer from './components/footer';
 import VideoCover from './components/videocover';
@@ -50,7 +50,8 @@ function App() {
       <Artist />
       <VideoBreak />
       <Alloy />
-      {/* <Venue /> */}
+      <Venue />
+
       {/* <Partner /> */}
       {/* <Footer /> */}
       <VideoCover></VideoCover>

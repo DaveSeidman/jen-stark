@@ -7,7 +7,12 @@ function VideoBreak() {
 
   return (
     <div className="videobreak">
-      <h1>Video Break</h1>
+      <video
+        muted
+        loop
+        playsInline
+        autoPlay
+        src={`${location.pathname}/VideoCover.mp4`} />
     </div>
   )
 }
