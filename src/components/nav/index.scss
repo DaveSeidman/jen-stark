@@ -2,7 +2,6 @@
 
 .nav {
   display: flex;
-  // height: 20rem;
   flex-direction: row;
   flex-wrap: wrap;
   background: #020202;
@@ -20,7 +19,7 @@
     // display: flex;
     height: auto;
     // flex-direction: column;
-    background-color: $blue;
+    background-color: $purple;
     font-size: 2.5rem;
     span {
       display: block;
@@ -40,13 +39,15 @@
     flex-direction: column;
 
     a {
+      // transform-origin: 0 0;
+      // transform: scaleX(.9);
       display: flex;
       flex: 1;
       align-items: center;
       padding: 0 2rem;
       // justify-content: center;
       cursor: pointer;
-      font-size: 4rem;
+      font-size: 5rem;
       text-transform: uppercase;
     }
   }
@@ -55,7 +56,6 @@
 
 @media screen and (max-width: 720px ) {
   .nav {
-    // flex-wrap: wrap;
     & > * {
       width: 100%;
     }

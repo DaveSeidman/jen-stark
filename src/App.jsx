@@ -40,7 +40,7 @@ function App() {
         onClick={() => { setOverview((prevOverview) => !prevOverview); }}
       ><img src={overview ? icon3D : icon2D} /></button>
       <Progress scrollPercent={scrollPercent}></Progress>
-      <a className="scrollHint" href="#nav">pull up for more</a>
+      <a className="scrollHint" href="#nav">scroll down for more</a>
       <Nav />
       <Experience />
       <Artist />

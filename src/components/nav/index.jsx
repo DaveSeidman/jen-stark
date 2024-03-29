@@ -6,7 +6,7 @@ function Nav() {
     <div id="nav" className="nav">
       <div className="nav-title">
         <h1>
-          <span className="large">Cascade</span>
+          <span className="large yellow">Cascade</span>
           <span>A Jen Stark</span>
           <span>Experience</span>
           <span className="yellow">Coming to LA</span>
@@ -16,7 +16,7 @@ function Nav() {
         <a href="#experience" className="back-red">Experience</a>
         <a href="#artist" className="back-blue">Artist</a>
         <a href="#venue" className="back-orange">Venue</a>
-        <a href="#opportunities" className="back-green">Opportunities</a>
+        <a href="#opportunities" className="back-teal">Opportunities</a>
       </div>
     </div>
   );
