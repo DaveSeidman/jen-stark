@@ -16,6 +16,7 @@ import { version } from '../package.json';
 import Progress from './components/progress';
 import icon2D from './assets/images/2d.svg';
 import icon3D from './assets/images/3d.svg';
+import downArrow from './assets/images/arrow.svg';
 
 function App() {
   const [overview, setOverview] = useState(false);
@@ -40,7 +41,7 @@ function App() {
         onClick={() => { setOverview((prevOverview) => !prevOverview); }}
       ><img src={overview ? icon3D : icon2D} /></button>
       <Progress scrollPercent={scrollPercent}></Progress>
-      <a className="scrollHint" href="#nav">scroll down for more</a>
+      <a className="scrollHint" href="#nav"><img src={downArrow} />scroll down for more<img src={downArrow} /></a>
       <Nav />
       <Experience />
       <Artist />
