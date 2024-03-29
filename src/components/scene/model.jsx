@@ -1,8 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber'
-import { AnimationMixer, MeshStandardMaterial } from 'three'
+import { AnimationMixer, MeshStandardMaterial, VideoTexture, RepeatWrapping, SkinnedMesh } from 'three'
 import { useGLTF } from '@react-three/drei';
-import { VideoTexture, RepeatWrapping } from 'three';
 import sceneFile from '../../assets/models/scene.glb';
 // import { MeshTransmissionMaterial } from '@pmndrs/vanilla';
 
@@ -26,6 +25,10 @@ function Model() {
     gltf.scene.traverse((obj) => {
       if (obj.name === 'person') {
         obj.frustumCulled = false;
+
+        const skinnedMesh = new SkinnedMesh(obj.geometry.clone(), new MeshStandardMaterial());
+        // gltf.scene.remove(obj);
+        // gltf.scene.add(skinnedMesh);
       }
 
       if (obj.material && obj.material.name.toLowerCase().includes('glass')) {

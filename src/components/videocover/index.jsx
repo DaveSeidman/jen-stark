@@ -16,7 +16,8 @@ function VideoCover() {
         loop
         src={`${location.pathname}/VideoCover.mp4`}
       />
-      <h1>Enter &nbsp;&nbsp; Cascade&nbsp;&nbsp;&nbsp;LA</h1>
+      <h1>CLICK &nbsp; TO &nbsp; ENTER &nbsp; CASCADE</h1>
+      <p>Los Angeles</p>
     </div>
   )
 }

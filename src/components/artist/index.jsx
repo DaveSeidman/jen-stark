@@ -31,9 +31,9 @@ function Artist() {
             <div className={`artist-body-left-socials-background ${showMandala ? 'active' : ''}`}></div>
             <h1 className="artist-body-left-socials-title">SOCIALS</h1>
             <div className={`artist-body-left-socials-icons ${showMandala ? 'active' : ''}`}>
-              <img src={instagramIcon} />
-              <img src={twitterIcon} />
-              <img src={tikTokIcon} />
+              <a href="http://instagram.com/jenstark" target="_blank"><img src={instagramIcon} /></a>
+              <a href="http://twitter.com/jen_stark" target="_blank"><img src={twitterIcon} /></a>
+              <a href="http://tiktok.com/@jenstark" target="_blank"><img src={tikTokIcon} /></a>
             </div>
           </div>
         </div>
