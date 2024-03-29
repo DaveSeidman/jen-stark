@@ -4,7 +4,7 @@ import { BufferGeometry, MeshStandardMaterial, DoubleSide, LineBasicMaterial, Me
 import { Bloom, DepthOfField, EffectComposer, Noise, Vignette, SSR } from '@react-three/postprocessing'
 // import { BlurPass, Resizer, KernelSize, Resolution } from 'postprocessing'
 import { Environment, Html, PerspectiveCamera, Plane, Sphere, Box, RoundedBox, useProgress } from '@react-three/drei';
-import envFile from '../../assets/images/spree_bank_2k.hdr';
+// import envFile from '../../assets/images/spree_bank_2k.hdr';
 import { TourCamera, OverviewCamera } from '../scene/cameras';
 
 import Model from '../scene/model'

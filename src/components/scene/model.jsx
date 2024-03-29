@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber'
-import { AnimationMixer, MeshStandardMaterial, VideoTexture, RepeatWrapping, SkinnedMesh } from 'three'
+import { AnimationMixer, MeshNormalMaterial, MeshStandardMaterial, VideoTexture, RepeatWrapping, SkinnedMesh, MeshBasicMaterial } from 'three'
 import { useGLTF } from '@react-three/drei';
 import sceneFile from '../../assets/models/scene.glb';
 // import { MeshTransmissionMaterial } from '@pmndrs/vanilla';
@@ -29,10 +29,9 @@ function Model() {
       }
       if (obj.name === 'person') {
         obj.frustumCulled = false;
-
-        const skinnedMesh = new SkinnedMesh(obj.geometry.clone(), new MeshStandardMaterial());
-        // gltf.scene.remove(obj);
-        // gltf.scene.add(skinnedMesh);
+        mixer.current = new AnimationMixer(obj);
+        const action = mixer.current.clipAction(gltf.animations[0]);
+        action.play();
       }
 
       if (obj.material && obj.material.name.toLowerCase().includes('glass')) {
@@ -57,8 +56,6 @@ function Model() {
         })
       }
       if (obj.material?.name.includes('mp4') && !videoTextures.current[obj.material.name]) {
-        // TODO: check here if this videoTexture already exists 
-        // if so, use it, if not, make a new one and push it to the array
         const video = document.createElement('video');
         video.setAttribute('autoplay', true);
         video.setAttribute('playsinline', true);
@@ -70,15 +67,11 @@ function Model() {
         videoTexture.wrapS = RepeatWrapping;
         videoTextures.current[obj.material.name] = videoTexture;
         obj.material.map = videoTexture;
+        // TODO: this might not be working
+        // TODO: check emissiveIntensity cglobally 
         obj.material.emissiveMap = videoTexture;
       }
     });
-
-
-    mixer.current = new AnimationMixer(gltf);
-    const action = mixer.current.clipAction(gltf.animations[1]);
-    console.log(action)
-    // action.play();
 
     addEventListener('click', startVideos);
 
