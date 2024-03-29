@@ -55,7 +55,8 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead }) {
   return (
     <Canvas className='scene'
       dpr={dpr}
-      shadows
+      // shadows
+      // shadowMap
       gl={{
         logarithmicDepthBuffer: true,
         antialias: false,
@@ -66,18 +67,18 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead }) {
       }}
     >
       {/* <PerformanceMonitorApi onIncline={() => setDpr(2)} onDecline={() => setDpr(1)} ></PerformanceMonitorApi> */}
-      <ambientLight intensity={.25} />
       <TourCamera makeDefault={!overview} lookAhead={lookAhead} scrollPercent={scrollPercent} scrollOffset={scrollOffset} />
       <OverviewCamera makeDefault={overview} />
-      {/* <Environment files={envFile} intensity={0.1} /> */}
+      {/* <Environment files={envFile} background={false} /> */}
 
-      <color attach="background" args={['#151520']} />
+      {/* <color attach="background" args={['#151520']} /> */}
       {/* <hemisphereLight intensity={0.5} />
       <directionalLight position={[0, 2, 5]} castShadow intensity={1} /> */}
       <Suspense fallback={<Loader />}>
         <Model />
       </Suspense>
       <EffectComposer disableNormalPass>
+
         {/* <Bloom
           intensity={1.0} // The bloom intensity.
           blurPass={undefined} // A blur pass.
@@ -89,6 +90,8 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead }) {
           resolutionY={Resolution.AUTO_SIZE} // The vertical resolution.
         /> */}
         <SSR {...props} />
+        {/* <Bloom blendFunction={4} intensity={1} luminanceThreshold={.9} /> */}
+
       </EffectComposer>
     </Canvas>
   )

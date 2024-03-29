@@ -23,6 +23,10 @@ function Model() {
   }
   useEffect(() => {
     gltf.scene.traverse((obj) => {
+      if (obj.isMesh) {
+        obj.castShadow = true;
+        obj.receiveShadow = true;
+      }
       if (obj.name === 'person') {
         obj.frustumCulled = false;
 
