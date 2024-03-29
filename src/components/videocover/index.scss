@@ -5,7 +5,8 @@
   height: calc(100vh - 9rem);
   cursor: pointer;
   transition: opacity 1s, visibility 1s;
-
+  overflow-x: hidden;
+  
   video {
     width: 100%;
     height: 100%;
