@@ -1,12 +1,12 @@
 // Colors
 
-$blue: rgb(71, 130, 247);
-$red: hsl(4, 100, 58);
-$orange: hsl(18, 100, 61);
-$teal: hsl(156, 64, 45);
-$purple: rgb(95, 41, 225);
-$darkpurple: rgb(46, 18, 128);
-$yellow: hsl(57, 95, 50);
+$blue: rgb(46, 132, 255);
+$red:rgb(255, 57, 51);
+$orange: rgb(255, 133, 0);
+$teal: rgb(8, 192, 100);
+$purple: rgb(103, 37, 234);
+$darkpurple: rgb(50, 16, 133);
+$yellow: rgb(245, 234, 30);
 
 .yellow { color: $yellow; }
 
@@ -108,7 +108,7 @@ html, body {
   .scrollHint {
     display: block;
     width: 100%;
-    padding: 1rem 0;
+    padding: 0.25rem 0;
     border: 0;
     margin: 0;
     background: $darkpurple;
