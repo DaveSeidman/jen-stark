@@ -15,7 +15,7 @@ function Nav() {
       <div className="nav-links">
         <a href="#experience" className="back-red">Experience</a>
         <a href="#artist" className="back-blue">Artist</a>
-        <a href="#venue" className="back-orange">Venue</a>
+        <a href="#alloy" className="back-orange">Venue</a>
         <a href="#opportunities" className="back-teal">Opportunities</a>
       </div>
     </div>

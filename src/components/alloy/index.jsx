@@ -18,7 +18,7 @@ function Alloy() {
 
 
   return (
-    <div className="alloy">
+    <div id="alloy" className="alloy">
       <div className="alloy-carousel">
         {
           carousels.alloy.map((image, index) => (
