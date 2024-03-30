@@ -11,7 +11,7 @@ function Opportunities() {
           <div className='opportunities-body-levels-level'>
             <h2>Partnerships</h2>
             <p>Let's work together to shape a custom strategic investment opporunity for meaningful returns.</p>
-            <a className="email-button" href="mailto:partnerships@jenstark.com?subject=Cascade Partnership Opportunities!">Email Us</a>
+            <a className="button" href="mailto:partnerships@jenstark.com?subject=Cascade Partnership Opportunities!">Email Us</a>
           </div>
           <div className='opportunities-body-levels-level'>
             <h2>Sponsors</h2>

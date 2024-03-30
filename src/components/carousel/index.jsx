@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './index.scss';
 
-function Carousel({ pages, setScrollPercent, lookAhead }) {
+function Carousel({ pages, scrollPercent, setScrollPercent }) {
   const pagesRef = useRef();
 
   const scroll = ({ target }) => {
@@ -10,6 +10,13 @@ function Carousel({ pages, setScrollPercent, lookAhead }) {
     const nextScrollPercent = (scrollTop / (scrollHeight - height));
     setScrollPercent(nextScrollPercent);
   };
+
+  const scrollToTop = () => {
+    pagesRef.current.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
 
   return (
     <div className="carousel">
@@ -28,11 +35,13 @@ function Carousel({ pages, setScrollPercent, lookAhead }) {
                   height: `${page.pathLength * 100}vh`
                 }}
               >
-                {/* <div className="carousel-pages-page-title">{page.title}</div> */}
               </div>
             );
           })
         }
+      </div>
+      <div className={`carousel-restart ${scrollPercent === 1 ? '' : 'hidden'}`}>
+        <button onClick={scrollToTop}>Return to Lounge</button>
       </div>
     </div>
   );

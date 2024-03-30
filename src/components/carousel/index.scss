@@ -1,8 +1,6 @@
 .carousel {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
+  inset: 0;
   height: calc(100vh - 10rem);
   * {
     user-select: none;
@@ -23,5 +21,12 @@
         height: 100%;
       }
     }
+  }
+
+  &-restart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }

@@ -66,7 +66,7 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead }) {
         // toneMappingExposure: .5
       }}
     >
-      <ambientLight intensity={.5} />
+      <ambientLight intensity={1} />
       {/* <PerformanceMonitorApi onIncline={() => setDpr(2)} onDecline={() => setDpr(1)} ></PerformanceMonitorApi> */}
       <TourCamera makeDefault={!overview} lookAhead={lookAhead} scrollPercent={scrollPercent} scrollOffset={scrollOffset} />
       <OverviewCamera makeDefault={overview} />

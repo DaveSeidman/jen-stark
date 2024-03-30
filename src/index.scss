@@ -158,4 +158,14 @@ html, body {
     font-size: .75rem;
     opacity: .5;
   }
+
+  button, .button {
+    background: $purple;
+    color: white;
+    font-family: 'Warsaw Gothic';
+    font-size: 3rem;
+    border: none;
+    padding: .5rem 3rem;
+    text-transform: uppercase;
+  }
 }

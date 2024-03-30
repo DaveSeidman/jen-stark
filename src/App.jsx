@@ -1,8 +1,10 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import './index.scss';
 import { pages } from '../config.json';
 import Scene from './components/scene';
+// import Restart from './components/restart';
 import Carousel from './components/carousel';
+import Progress from './components/progress';
 import Nav from './components/nav';
 import Experience from './components/experience';
 import Artist from './components/artist';
@@ -11,16 +13,19 @@ import Opportunities from './components/opportunities';
 import VideoCover from './components/videocover';
 import VideoBreak from './components/videobreak';
 import Alloy from './components/alloy';
-import { version } from '../package.json';
-import Progress from './components/progress';
 import icon2D from './assets/images/2d.svg';
 import icon3D from './assets/images/3d.svg';
 import downArrow from './assets/images/arrow.svg';
+import { version } from '../package.json';
 
 function App() {
   const [overview, setOverview] = useState(false);
   const [scrollPercent, setScrollPercent] = useState(0);
   const lookAhead = 0.005;
+
+  // const scrollToTop = () => {
+  //   console.log('here', carouselRef);
+  // }
 
   return (
     <div className="app">
@@ -31,8 +36,9 @@ function App() {
       ></Scene>
       <Carousel
         lookAhead={lookAhead}
-        pages={pages}
+        scrollPercent={scrollPercent}
         setScrollPercent={setScrollPercent}
+        pages={pages}
       />
       <button
         type="button"
@@ -48,7 +54,8 @@ function App() {
       <Alloy />
       <Venue />
       <Opportunities />
-      <VideoCover></VideoCover>
+      {/* <Restart scrollPercent={scrollPercent} scrollToTop={scrollToTop} /> */}
+      <VideoCover />
       {/* TODO: have the click on videocover start the videotextures in <scene> */}
       <p className="version">{`version: ${version}`}</p>
     </div>
