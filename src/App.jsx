@@ -54,7 +54,6 @@ function App() {
       <Alloy />
       <Venue />
       <Opportunities />
-      {/* <Restart scrollPercent={scrollPercent} scrollToTop={scrollToTop} /> */}
       <VideoCover />
       {/* TODO: have the click on videocover start the videotextures in <scene> */}
       <p className="version">{`version: ${version}`}</p>

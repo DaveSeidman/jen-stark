@@ -25,9 +25,7 @@ function Model() {
     gltf.scene.traverse((obj) => {
 
       if (obj.isLight) {
-        console.log(obj);
         obj.distance = 20;
-
       }
       // if (obj.isMesh) {
       //   obj.castShadow = true;
