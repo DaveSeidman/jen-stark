@@ -40,7 +40,7 @@ function Carousel({ pages, scrollPercent, setScrollPercent }) {
           })
         }
       </div>
-      <div className={`carousel-restart ${scrollPercent === 1 ? '' : 'hidden'}`}>
+      <div className={`carousel-restart ${scrollPercent > .99 ? '' : 'hidden'}`}>
         <button onClick={scrollToTop}>Return to Lounge</button>
       </div>
     </div>
