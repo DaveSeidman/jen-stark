@@ -26,6 +26,10 @@ function Model() {
       if (obj.isMesh) {
         obj.castShadow = true;
         obj.receiveShadow = true;
+        if (obj.material.emissiveMap) {
+          // obj.material.emissiveIntensity = 1
+          console.log(obj)
+        }
       }
       if (obj.name === 'person') {
         obj.frustumCulled = false;
