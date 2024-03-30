@@ -51,7 +51,7 @@ export function TourCamera({ makeDefault, scrollPercent, lookAhead }) {
     if (drag.current) {
       // containerRef.current.rotation.x = ((clientY / height) - pointerTarget.current.x) * 4;
       // console.log(e)
-      // rotationTarget.current.x += ((clientY / height) - pointerTarget.current.x) * 4;
+      rotationTarget.current.x += ((clientY / height) - pointerTarget.current.x) * 4;
       rotationTarget.current.y += ((clientX / width) - pointerTarget.current.y) * 4;
     }
     pointerTarget.current.x = clientY / height;

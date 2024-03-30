@@ -1,62 +1,56 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber'
-import { AnimationMixer, MeshNormalMaterial, MeshStandardMaterial, VideoTexture, RepeatWrapping, SkinnedMesh, MeshBasicMaterial } from 'three'
+import { AnimationMixer, VideoTexture, RepeatWrapping, MeshStandardMaterial } from 'three'
 import { useGLTF } from '@react-three/drei';
 import sceneFile from '../../assets/models/scene.glb';
-// import { MeshTransmissionMaterial } from '@pmndrs/vanilla';
+// import { MeshReflectorMaterial } from '@pmndrs/vanilla';
 
 function Model() {
   // Ask GPT if we should move the gltf loading outside of here
   const gltf = useGLTF(sceneFile);
   const videoTextures = useRef({})
   const videosStarted = useRef(false);
-  const mixer = useRef();
+  const mixers = useRef([]);
 
   const tranmissionMat = useRef();
 
   const startVideos = () => {
-    if (videosStarted.current) return
+    console.log('start Videos', videosStarted);
+    // if (videosStarted.current) return
     Object.keys(videoTextures.current).forEach((name) => {
       videoTextures.current[name].source.data.play();
     })
     videosStarted.current = true;
   }
   useEffect(() => {
+
+    let animCount = 0;
     gltf.scene.traverse((obj) => {
 
       if (obj.isLight) {
-        console.log(obj);
         obj.distance = 20;
-
+        obj.castShadow = true;
+        console.log(obj);
       }
-      // if (obj.isMesh) {
-      //   obj.castShadow = true;
-      //   obj.receiveShadow = true;
-      //   if (obj.material.emissiveMap) {
-      //     // obj.material.emissiveIntensity = 1
-      //     console.log(obj)
-      //   }
-      // }
-      if (obj.name === 'person') {
+
+      // console.log(gltf.animations)
+      if (obj.type === 'SkinnedMesh') {
         obj.frustumCulled = false;
-        mixer.current = new AnimationMixer(obj);
-        const action = mixer.current.clipAction(gltf.animations[0]);
+        const mixer = new AnimationMixer(obj)
+        mixers.current.push(mixer);
+        const action = mixer.clipAction(gltf.animations[animCount]);
         action.play();
-      }
-
-      if (obj.material && obj.material.name.toLowerCase().includes('glass')) {
-        // console.log(obj)
-      }
-
-      if (obj.material && obj.material.name === 'neon-yellow') {
-        // obj.material.emissiveIntensity = 100;
-        // console.log(obj.material);
+        animCount += 1;
       }
 
       if (obj.name === 'floor') {
         obj.receiveShadow = true;
         obj.castShadow = true;
         obj.smoothness = 10
+        // const reflectorMaterial = new MeshReflectorMaterial();
+        // obj.material = new MeshReflectorMaterial({
+
+        // })
         obj.material = new MeshStandardMaterial({
           color: 0x000000,
           envMapIntensity: .5,
@@ -77,6 +71,7 @@ function Model() {
         videoTexture.wrapS = RepeatWrapping;
         videoTextures.current[obj.material.name] = videoTexture;
         obj.material.map = videoTexture;
+        obj.material.emissiveMap = videoTexture;
         // TODO: this might not be working
         // TODO: check emissiveIntensity cglobally 
         // obj.material.emissiveMap = videoTexture;
@@ -95,15 +90,14 @@ function Model() {
       videoTextures.current[name].update();
     })
 
-    if (mixer.current) {
-      mixer.current.update(delta)
-    }
+    mixers.current.forEach(mixer => {
+      mixer.update(delta)
+    })
   })
 
   return (
     <group>
       <primitive object={gltf.scene} />
-      {/* <meshTransmissionMaterial ref={tranmissionMat} /> */}
     </group >
   );
 }

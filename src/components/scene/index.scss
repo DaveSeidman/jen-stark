@@ -1,5 +1,13 @@
 .preloader {
-  font-family: 3rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  margin-top: 7rem;
+  color: white;
+  font-family: 'Warsaw Gothic';
+  font-size: 4rem;
 }
 
 .scene {
