@@ -1,6 +1,6 @@
 import React, { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { BufferGeometry, MeshStandardMaterial, DoubleSide, LineBasicMaterial, MeshBasicMaterial } from 'three';
+import { BufferGeometry, MeshStandardMaterial, DoubleSide, LineBasicMaterial, MeshBasicMaterial, AmbientLight } from 'three';
 import { Bloom, DepthOfField, EffectComposer, Noise, Vignette, SSR } from '@react-three/postprocessing'
 // import { BlurPass, Resizer, KernelSize, Resolution } from 'postprocessing'
 import { Environment, Html, PerspectiveCamera, Plane, Sphere, Box, RoundedBox, useProgress } from '@react-three/drei';
@@ -66,6 +66,7 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead }) {
         // toneMappingExposure: .5
       }}
     >
+      <ambientLight intensity={.5} />
       {/* <PerformanceMonitorApi onIncline={() => setDpr(2)} onDecline={() => setDpr(1)} ></PerformanceMonitorApi> */}
       <TourCamera makeDefault={!overview} lookAhead={lookAhead} scrollPercent={scrollPercent} scrollOffset={scrollOffset} />
       <OverviewCamera makeDefault={overview} />
