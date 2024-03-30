@@ -56,6 +56,7 @@ function Model() {
         })
       }
       if (obj.material?.name.includes('mp4') && !videoTextures.current[obj.material.name]) {
+        console.log(obj)
         const video = document.createElement('video');
         video.setAttribute('autoplay', true);
         video.setAttribute('playsinline', true);
