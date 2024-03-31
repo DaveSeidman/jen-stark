@@ -30,7 +30,6 @@ function Model() {
       if (obj.isLight) {
         obj.distance = 20;
         obj.castShadow = true;
-        console.log(obj);
       }
 
       // console.log(gltf.animations)

@@ -11,15 +11,17 @@ import Model from '../scene/model'
 import './index.scss';
 
 
-function Loader() {
+function Loader({ setLoaded }) {
   const { progress } = useProgress();
+  if (progress === 100) setLoaded(true);
   return (
-    <Html className="preloader">{`${Math.round(progress)}%`}</Html>
+    <Html className="preloader">
+      <h1>{`${Math.round(progress)}%`}</h1>
+    </Html>
   );
 }
 
-function Scene({ overview, scrollPercent, scrollOffset, lookAhead }) {
-  // const [overview, setOverview] = useState(false)
+function Scene({ overview, scrollPercent, scrollOffset, lookAhead, setLoaded }) {
   const props = {
     temporalResolve: true,
     STRETCH_MISSED_RAYS: true,
@@ -75,7 +77,7 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead }) {
       {/* <color attach="background" args={['#151520']} /> */}
       {/* <hemisphereLight intensity={0.5} /> */}
       {/*<directionalLight position={[0, 2, 5]} castShadow intensity={1} /> */}
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loader setLoaded={setLoaded} />}>
         <Model />
       </Suspense>
       <EffectComposer disableNormalPass>

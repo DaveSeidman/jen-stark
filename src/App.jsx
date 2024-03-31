@@ -19,13 +19,10 @@ import downArrow from './assets/images/arrow.svg';
 import { version } from '../package.json';
 
 function App() {
+  const [loaded, setLoaded] = useState(false);
   const [overview, setOverview] = useState(false);
   const [scrollPercent, setScrollPercent] = useState(0);
   const lookAhead = 0.005;
-
-  // const scrollToTop = () => {
-  //   console.log('here', carouselRef);
-  // }
 
   return (
     <div className="app">
@@ -33,6 +30,7 @@ function App() {
         overview={overview}
         scrollPercent={scrollPercent}
         lookAhead={lookAhead}
+        setLoaded={setLoaded}
       ></Scene>
       <Carousel
         lookAhead={lookAhead}
@@ -54,9 +52,7 @@ function App() {
       <Alloy />
       <Venue />
       <Opportunities />
-      {/* <Restart scrollPercent={scrollPercent} scrollToTop={scrollToTop} /> */}
-      <VideoCover />
-      {/* TODO: have the click on videocover start the videotextures in <scene> */}
+      <VideoCover loaded={loaded} />
       <p className="version">{`version: ${version}`}</p>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import './index.scss';
 
-function VideoCover() {
+function VideoCover({ loaded }) {
   const [show, setShow] = useState(true);
   return (
     <div className={`videocover ${show ? '' : 'hidden'}`}
@@ -16,8 +16,10 @@ function VideoCover() {
         loop
         src={`${location.pathname}/VideoCover.mp4`}
       />
-      <h1>CLICK &nbsp; TO &nbsp; ENTER &nbsp; CASCADE</h1>
-      <p>Los Angeles</p>
+      <div className={`videocover-title ${loaded ? '' : 'hidden'}`}>
+        <h1>CLICK &nbsp; TO &nbsp; ENTER &nbsp; CASCADE</h1>
+        <p>Los Angeles</p>
+      </div>
     </div>
   )
 }
