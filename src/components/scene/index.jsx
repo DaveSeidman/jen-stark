@@ -58,10 +58,10 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead, setLoaded }) 
       shadows
       // shadowMap
       gl={{
-        logarithmicDepthBuffer: true,
-        antialias: false,
-        stencil: false,
-        depth: false,
+        // logarithmicDepthBuffer: true,
+        // antialias: false,
+        // stencil: false,
+        // depth: false,
         // toneMapping: 1,
         // toneMappingExposure: .15
       }}
@@ -78,9 +78,9 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead, setLoaded }) 
         <Model />
       </Suspense>
       <EffectComposer disableNormalPass>
-        {/* <SSR {...props} /> */}
+        <SSR {...props} />
         {/* <DepthOfField focusDistance={1} focalLength={0.02} bokehScale={2} height={480} /> */}
-        <Vignette />
+        {/* <Vignette /> */}
         {/* <ChromaticAberration offset={new Vector2(.0005, 0)} /> */}
         {/* <Bloom intensity={1.5} height={1} luminanceThreshold={0.9} mipmapBlur /> */}
       </EffectComposer>
