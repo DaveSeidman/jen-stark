@@ -51,7 +51,7 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead, setLoaded }) 
     thickness: 10,
     ior: 1.5
   }
-  const [dpr, setDpr] = useState(1.25)
+  const [dpr, setDpr] = useState(1.0)
 
   return (
     <Canvas className='scene'

@@ -82,8 +82,8 @@ export function TourCamera({ makeDefault, scrollPercent, lookAhead }) {
       <PerspectiveCamera
         ref={cameraRef}
         makeDefault={makeDefault}
-        fov={makeDefault ? 60 : 30}
-        far={makeDefault ? 1000 : 10}
+        fov={70}
+        far={1000}
       >
         <Cone
           visible={!makeDefault}
