@@ -2,6 +2,7 @@ import React, { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Bloom, DepthOfField, ChromaticAberration, EffectComposer, Noise, Vignette, SSR } from '@react-three/postprocessing'
 import { Environment, Html, PerspectiveCamera, Plane, Sphere, Box, RoundedBox, useProgress } from '@react-three/drei';
+import { Vector2 } from 'three';
 import envFile from '../../assets/images/metro_noord_4k.hdr';
 import { TourCamera, OverviewCamera } from '../scene/cameras';
 
@@ -66,7 +67,7 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead, setLoaded }) 
         // toneMappingExposure: .15
       }}
     >
-      <ambientLight intensity={.5} />
+      <ambientLight intensity={.25} />
       {/* <PerformanceMonitorApi onIncline={() => setDpr(2)} onDecline={() => setDpr(1)} ></PerformanceMonitorApi> */}
       <TourCamera makeDefault={!overview} lookAhead={lookAhead} scrollPercent={scrollPercent} scrollOffset={scrollOffset} />
       <OverviewCamera makeDefault={overview} />
@@ -80,9 +81,8 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead, setLoaded }) 
       <EffectComposer disableNormalPass>
         <SSR {...props} />
         {/* <DepthOfField focusDistance={1} focalLength={0.02} bokehScale={2} height={480} /> */}
-        {/* <Vignette /> */}
-        {/* <ChromaticAberration offset={new Vector2(.0005, 0)} /> */}
-        {/* <Bloom intensity={1.5} height={1} luminanceThreshold={0.9} mipmapBlur /> */}
+        <Vignette />
+        <ChromaticAberration offset={new Vector2(.0005, 0)} />
       </EffectComposer>
     </Canvas>
   )

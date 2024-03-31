@@ -3,6 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import { AnimationMixer, VideoTexture, RepeatWrapping, MeshStandardMaterial } from 'three'
 import { useGLTF } from '@react-three/drei';
 import sceneFile from '../../assets/models/scene.glb';
+import FakeGlowMaterial from './FakeGlowMaterial';
 // import { MeshReflectorMaterial } from '@pmndrs/vanilla';
 
 function Model() {
@@ -14,10 +15,15 @@ function Model() {
 
   const tranmissionMat = useRef();
 
+  const fgmat = new FakeGlowMaterial();
+
   const startVideos = () => {
-    if (videosStarted.current) return
+    // console.log("here", videoTextures.current[Object.keys(videoTextures.current)[0]].source.data.paused)
+    // if (videosStarted.current) return
     Object.keys(videoTextures.current).forEach((name) => {
       videoTextures.current[name].source.data.play();
+      // videoTextures.current[name].needsUpdate = true;
+      // videoTextures.current[name].needsPMREMUpdate = true
     })
     videosStarted.current = true;
   }
@@ -27,10 +33,14 @@ function Model() {
     gltf.scene.traverse((obj) => {
 
       if (obj.isLight) {
-        obj.distance = 20;
+        // obj.distance = 20;
         obj.castShadow = true;
       }
 
+      if (obj.material && obj.material.name.toLowerCase().includes('neon')) {
+        // console.log(obj);
+        // obj.material = fgmat;
+      }
       // console.log(gltf.animations)
       if (obj.type === 'SkinnedMesh') {
         obj.frustumCulled = false;
