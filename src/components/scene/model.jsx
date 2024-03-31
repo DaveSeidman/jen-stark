@@ -15,8 +15,7 @@ function Model() {
   const tranmissionMat = useRef();
 
   const startVideos = () => {
-    console.log('start Videos', videosStarted);
-    // if (videosStarted.current) return
+    if (videosStarted.current) return
     Object.keys(videoTextures.current).forEach((name) => {
       videoTextures.current[name].source.data.play();
     })

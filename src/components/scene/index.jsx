@@ -1,8 +1,6 @@
 import React, { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { BufferGeometry, MeshStandardMaterial, DoubleSide, LineBasicMaterial, MeshBasicMaterial, AmbientLight, Vector2 } from 'three';
 import { Bloom, DepthOfField, ChromaticAberration, EffectComposer, Noise, Vignette, SSR } from '@react-three/postprocessing'
-// import { BlurPass, Resizer, KernelSize, Resolution } from 'postprocessing'
 import { Environment, Html, PerspectiveCamera, Plane, Sphere, Box, RoundedBox, useProgress } from '@react-three/drei';
 import envFile from '../../assets/images/metro_noord_4k.hdr';
 import { TourCamera, OverviewCamera } from '../scene/cameras';
@@ -52,7 +50,7 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead, setLoaded }) 
     thickness: 10,
     ior: 1.5
   }
-  const [dpr, setDpr] = useState(1)
+  const [dpr, setDpr] = useState(1.25)
 
   return (
     <Canvas className='scene'
@@ -73,7 +71,6 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead, setLoaded }) 
       <TourCamera makeDefault={!overview} lookAhead={lookAhead} scrollPercent={scrollPercent} scrollOffset={scrollOffset} />
       <OverviewCamera makeDefault={overview} />
       <Environment files={envFile} background={false} intensity={1} />
-
       {/* <color attach="background" args={['#151520']} /> */}
       {/* <hemisphereLight intensity={0.5} /> */}
       {/*<directionalLight position={[0, 2, 5]} castShadow intensity={1} /> */}
@@ -81,17 +78,11 @@ function Scene({ overview, scrollPercent, scrollOffset, lookAhead, setLoaded }) 
         <Model />
       </Suspense>
       <EffectComposer disableNormalPass>
-        <SSR {...props} />
+        {/* <SSR {...props} /> */}
         {/* <DepthOfField focusDistance={1} focalLength={0.02} bokehScale={2} height={480} /> */}
         <Vignette />
-        <ChromaticAberration offset={new Vector2(.0005, 0)} />
-        {/* <Bloom
-          intensity={1.5}
-          height={1}
-          luminanceThreshold={0.9} // luminance threshold. Raise this value to mask out darker elements in the scene.
-          mipmapBlur // Enables or disables mipmap blur.
-        /> */}
-
+        {/* <ChromaticAberration offset={new Vector2(.0005, 0)} /> */}
+        {/* <Bloom intensity={1.5} height={1} luminanceThreshold={0.9} mipmapBlur /> */}
       </EffectComposer>
     </Canvas>
   )
